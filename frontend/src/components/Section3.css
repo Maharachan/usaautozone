@@ -1,0 +1,107 @@
+/* Section Container */
+.section3 {
+  display: flex;
+  justify-content: space-between; /* Align cards side by side with space */
+  align-items: center;
+  gap: 30px; /* Increase gap between cards */
+  padding: 50px 20px;
+  font-family: 'Montserrat', sans-serif;
+  flex-wrap: nowrap; /* Prevent wrapping of cards */
+}
+
+/* Card Styles */
+.section3-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px; /* Increase padding for larger cards */
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px; /* Increase maximum width for bigger cards */
+  height: 300px; /* Set fixed height for cards */
+  color: #ffffff; /* Default text color for cards */
+  text-align: center;
+  margin-top: 0; /* Remove top margin for proper alignment */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+}
+
+/* Left (Red) Card */
+.left-card {
+  background-color: #ff0000;
+}
+
+/* Right (Dark) Card */
+.right-card {
+  background-color: #191920;
+}
+
+/* Title */
+.section3-title {
+  font-size: 2rem; /* Increase title font size */
+  font-weight: 700; /* Make the title bold */
+  margin-bottom: 20px;
+  line-height: 1.5; /* Add better line spacing */
+}
+
+/* Button */
+.section3-button {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 1.2rem; /* Increase button font size */
+  font-weight: 600;
+  border: none;
+  border-radius: 8px; /* Slightly rounder corners */
+  padding: 15px 25px; /* Larger padding for bigger buttons */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.section3-button:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Contact Info */
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Increase gap between icon and number */
+  margin-bottom: 20px;
+  font-size: 1.5rem; /* Increase font size for phone number */
+}
+
+/* Phone Icon */
+.phone-icon {
+  color: #ff1500; /* Light red icon color */
+  font-size: 2rem; /* Larger icon size */
+}
+
+/* Phone Number */
+.phone-number {
+  color: #ffffff;
+  font-weight: 700; /* Make phone number bold */
+}
+/* Search Icon Style */
+.search-icon {
+  margin-right: 10px; /* Add spacing between the icon and text */
+  font-size: 1.2rem; /* Adjust icon size to match the button text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section3 {
+    flex-wrap: wrap; /* Allow cards to stack on smaller screens */
+    gap: 20px;
+  }
+
+  .section3-card {
+    max-width: 100%; /* Full width on smaller screens */
+    height: auto; /* Remove fixed height for flexibility */
+  }
+
+  .section3-button {
+    font-size: 1rem;
+    padding: 10px 20px; /* Adjust button size for smaller screens */
+  }
+}

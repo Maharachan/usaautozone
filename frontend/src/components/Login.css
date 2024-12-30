@@ -1,0 +1,44 @@
+/* Login.css */
+.login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .login-page form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 150px;
+  }
+  
+  input {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  button:hover {
+    background-color: #ca0505;
+  }
+  
+  .error {
+    color: red;
+    font-size: 14px;
+  }
+  

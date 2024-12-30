@@ -1,0 +1,61 @@
+/* Section Container */
+.section2 {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #ffffff; /* White background */
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Title */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: #191919; /* Dark text color */
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+
+/* Features Container */
+.features-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Spacing between cards */
+  flex-wrap: wrap; /* Responsive design */
+  margin-top: 60px;
+}
+
+/* Feature Card */
+.feature-card {
+  text-align: center;
+  width: 300px; /* Card width */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f9f9f9; /* Light background for the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease; /* Animation on hover */
+}
+
+/* Card Hover Effect */
+.feature-card:hover {
+  transform: translateY(-10px); /* Lift effect */
+}
+
+/* Icon */
+.feature-icon {
+  margin-bottom: 15px;
+}
+
+/* Feature Title */
+.feature-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #191919; /* Dark text color */
+  margin-bottom: 10px;
+}
+
+/* Feature Description */
+.feature-description {
+  font-size: 0.9rem;
+  color: #666666; /* Subtle gray color */
+  line-height: 1.5;
+}
