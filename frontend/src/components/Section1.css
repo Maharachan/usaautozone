@@ -1,9 +1,12 @@
+/* Section1.css */
+
+/* General section styles */
 .section1 {
   padding: 40px;
   font-family: 'Montserrat', sans-serif;
-
 }
 
+/* Heading styles */
 .heading {
   margin-bottom: 30px;
 }
@@ -20,21 +23,35 @@
 
 .heading-dark {
   color: #191919;
-  font-weight:bolder;
+  font-weight: bolder;
   font-size: 2.5rem;
   text-align: left;
   margin-top: 10px;
   margin-left: 20px;
-  
 }
 
+/* Card Container */
 .card-container {
   display: flex;
-  gap: 20px;
+  gap: 30px; /* Adjusts space between columns */
   margin-top: 40px;
+  justify-content:space-between; /* Adjusts spacing between columns */
 }
 
-/* Large Card Styles */
+/* Row for columns */
+.row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* First Column with the Larger Card */
+.col-1 {
+  flex: 0 0 45%; /* Larger column for the first card */
+   /* Space between the first and second columns */
+}
+
+
 .large-card {
   flex: 1;
 }
@@ -70,10 +87,63 @@
   margin-bottom: 20px;
 }
 
-/* Small Cards Styles */
-.small-cards {
-  flex: 0.5;
+/* Second and Third Columns with Two Smaller Cards */
+.col-2 {
+  flex: 0.5 0.5 80%; /* Smaller columns for the two cards */
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  padding-right: 50px;
+  padding-left: 50px;
+ /* Smaller gap between the two smaller cards */
+}
+.col-3 {
+  flex: 0.5 0.5 80%; /* Smaller columns for the two cards */
+  display: flex;
+  flex-direction: column; /* Smaller gap between the two smaller cards */
+  
+  
+}
+
+.col {
+  flex: 1;
+}
+
+.small-card {
+  flex: 1;
+  background-color: #191919;
+  border-radius: 10px;
+  overflow: hidden;
+  color: white;
+}
+
+/* Small Cards Styles */
+.card-container {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-text {
+  padding: 10px;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.card-text h2 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.card-text p {
+  font-size: 1rem;
+  margin: 0;
+  color: red;
+  margin-bottom: 20px;
 }

@@ -1,33 +1,44 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
+import { Link as RouterLink, useNavigate } from "react-router-dom"; // Import RouterLink for navigation
 import "./Navbar.css";
 import { FaSearch } from "react-icons/fa";
-import logo from '../assets/logo.png';
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
-  const navigate = useNavigate(); // useNavigate hook for programmatic navigation
+  const navigate = useNavigate();
 
   const handleSearchClick = () => {
-    navigate("/"); // Redirect to Hero section on Search button click
+    navigate("/"); // Navigate to the home page
+  };
+
+  const handleContactUsClick = () => {
+    navigate("/", { state: { scrollTo: "section4" } }); // Navigate to home and scroll to Section4
   };
 
   return (
     <nav className="navbar">
       {/* Logo Section */}
       <div className="navbar-logo">
-        <img
-          src={logo}
-          alt="USA Auto Zone"
-          className="logo"
-        />
+        <img src={logo} alt="USA Auto Zone" className="logo" />
       </div>
 
       {/* Navigation Links */}
       <ul className="navbar-links">
-        <li><Link to="/">Home</Link></li> {/* Home link */}
-        <li><Link to="/cars">Cars</Link></li> {/* Cars link */}
-        <li><Link to="/admin">Admin</Link></li> {/* Admin link */}
-        <li><a href="#section4">Contact Us</a></li> {/* Contact Us link */}
+        <li>
+          <RouterLink to="/">Home</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/cars">Cars</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/admin">Admin</RouterLink>
+        </li>
+        <li>
+          {/* Trigger scroll to Section4 */}
+          <button className="contact-us-btn" onClick={handleContactUsClick}>
+            Contact Us
+          </button>
+        </li>
       </ul>
 
       {/* Search Button */}
@@ -39,12 +50,12 @@ const Navbar = () => {
 };
 
 // JavaScript to add 'scrolled' class on scroll
-window.onscroll = function() {
-  var navbar = document.querySelector('.navbar');
+window.onscroll = function () {
+  var navbar = document.querySelector(".navbar");
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-    navbar.classList.add('scrolled');
+    navbar.classList.add("scrolled");
   } else {
-    navbar.classList.remove('scrolled');
+    navbar.classList.remove("scrolled");
   }
 };
 

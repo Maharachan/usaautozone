@@ -1,11 +1,9 @@
-// Section4.js
 import React from "react";
 import "./Section4.css";
 
 const Section4 = () => {
   return (
-
-    <div className="section4">
+    <div className="section4" id="section4"> {/* Added id="section4" */}
       <h2 className="newsletter-title">Newsletter</h2>
       <form className="newsletter-form">
         <input
@@ -18,7 +16,6 @@ const Section4 = () => {
         </button>
       </form>
     </div>
-    
   );
 };
 

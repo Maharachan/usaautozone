@@ -60,30 +60,58 @@ function CarDetails() {
     <div className="car-details-container">
       {/* Car Details */}
       <div className="car-details-card">
-        <img src={`http://localhost:5000/images/${car.image}`} alt={car.name} className="car-details-image" />
-        <div className="car-details-info">
-          <h2>{car.name}</h2>
-          <p>
-            <strong>Year:</strong> {car.year}
-          </p>
-          <p>
-            <strong>Miles:</strong> {car.miles}
-          </p>
-          <p>
-            <strong>Transmission:</strong> {car.transmission}
-          </p>
-          <p>
-            <strong>Fuel:</strong> {car.fuel}
-          </p>
-          <p>
-            <strong>Price:</strong> {car.price}
-          </p>
-          <h3>Features:</h3>
-          <ul className="features-list">
-            {car.features.map((feature, index) => (
-              <li key={index}>{feature}</li>
-            ))}
-          </ul>
+        <div className="car-details-card-content">
+          {/* Multiple Car Images */}
+          <div className="car-details-images-container">
+            {car.images && car.images.length > 0 ? (
+              car.images.map((image, index) => (
+                <div key={index} className="car-image-wrapper">
+                  <img
+                    src={`data:image/jpeg;base64,${btoa(
+                      new Uint8Array(image.data).reduce(
+                        (data, byte) => data + String.fromCharCode(byte),
+                        ""
+                      )
+                    )}`}
+                    alt={`Car ${index + 1}`}
+                    className="car-details-image"
+                  />
+                </div>
+              ))
+            ) : (
+              <p>No images available for this car.</p>
+            )}
+          </div>
+
+          {/* Car Information */}
+          <div className="car-details-info">
+            <h2>{car.name}</h2>
+            <p>
+              <strong>Year:</strong> {car.year}
+            </p>
+            <p>
+              <strong>Miles:</strong> {car.miles}
+            </p>
+            <p>
+              <strong>Transmission:</strong> {car.transmission}
+            </p>
+            <p>
+              <strong>Fuel:</strong> {car.fuel}
+            </p>
+            <p>
+              <strong>Price:</strong> {car.price}
+            </p>
+            <h3>Features:</h3>
+            <ul className="features-list">
+              {car.features && car.features.length > 0 ? (
+                car.features.map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))
+              ) : (
+                <li>No features available</li>
+              )}
+            </ul>
+          </div>
         </div>
       </div>
 
