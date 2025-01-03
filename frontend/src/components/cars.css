@@ -209,17 +209,102 @@
   .search-button i {
     font-size: 16px;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .car-card {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .car-image {
-      width: 100%;
-      height: auto;
-    }
+/* Responsive Design for Mobile View */
+@media (max-width: 768px) {
+  /* Hero Section Adjustments */
+  .cars-hero {
+    height: 50px; /* Adjust height for smaller screens */
+    padding: 10px; /* Reduce padding */
+    width: 100%;
+    background: #ff0000;
   }
-  
+
+  .cars-hero h2 {
+    font-size: 36px; /* Reduce font size for mobile */
+    padding-top: 120px; /* Adjust top padding */
+  }
+
+  /* Cars List Adjustments */
+  .cars-list {
+    gap: 15px; /* Reduce gap between cards */
+    padding: 0 10px; /* Adjust padding */
+  }
+
+  /* Car Card Adjustments */
+  .car-card {
+    flex-direction: column; /* Stack image and details vertically */
+    align-items: center; /* Center-align content */
+    text-align: center; /* Center-align text */
+  }
+  .car-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .car-image {
+    width: 100%; /* Allow image to take full width */
+    margin-right: 0; /* Remove right margin */
+    margin-bottom: 10px; /* Add space between image and details */
+  }
+
+  .car-image-img {
+    width: 100%; /* Ensure image is responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .car-details {
+     /* Remove left margin */
+    align-items: center; /* Center-align details */
+    text-align: center; /* Center-align text */
+    margin-top: 20px;
+  }
+
+  .car-details h3 {
+    font-size: 24px; /* Adjust font size for mobile */
+  }
+
+  .car-details p {
+    font-size: 14px; /* Adjust font size for readability */
+  }
+
+  .view-details-btn {
+    font-size: 12px; /* Reduce button font size */
+    padding: 8px 15px; /* Adjust button padding */
+  }
+
+  /* Search Container Adjustments */
+  .search-container-1 {
+    flex-direction: column; /* Stack filters vertically */
+    align-items: center; /* Center-align content */
+    padding: 20px; /* Reduce padding */
+    margin-top: 170px; /* Adjust top margin */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 70%; /* Make it full-width */
+    box-shadow: none; /* Remove shadow for smaller screens */
+    border-radius: 10px;
+  }
+
+  .filter-group-1 {
+    flex-direction: column; /* Stack filters vertically */
+    gap: 15px; /* Reduce gap between filters */
+  }
+
+  .filter-1 {
+    padding: 8px 10px; /* Adjust padding */
+    font-size: 14px; /* Reduce font size */
+  }
+
+  .search-button-1 {
+    margin-left: 0; /* Remove left margin */
+    margin-top: 15px; /* Add space above button */
+    font-size: 16px; /* Adjust button font size */
+    width: 40%;
+
+  }
+}

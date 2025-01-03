@@ -1,94 +1,93 @@
 /* Navbar Styling */
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: red; /* Transparent Background */
-    position: fixed; /* Sticks to the top */
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    color: white;
-    margin-right: 50px;
-    font-family: 'Montserrat', sans-serif;
-    padding-top: 30px;
-    padding-bottom: 20px;
-    
-  }
-  
-  .navbar-logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .navbar-logo .logo {
-    width: 200px;
-    margin-left: 20px;
-    margin-right: 10px;
-  }
-  
-  .navbar-logo span {
-    font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: red; /* Transparent Background */
+  position: fixed; /* Sticks to the top */
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  color: white;
+  margin-right: 50px;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
 
-  }
-  
-  .navbar-links {
-    list-style: none;
-    display: flex;
-    gap: 45px;
-    font-size: 14px;
-  }
-  
-  .navbar-links li {
-    display: inline;
-  }
-  
-  .navbar-links a {
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    color: white;
-    transition: color 0.3s;
-    text-transform: uppercase;
-  }
-  
-  .navbar-links a:hover {
-    color: #ffffff; /* Slight hover effect */
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  .navbar-search-btn {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: white;
-    border: none;
-    border-radius: 20px;
-    color: red;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin-right: 100px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    text-transform: uppercase;
-  }
-  
-  .navbar-search-btn:hover {
-    background-color: #ffffff;
-    font-size: 17px;
-    font-weight: bold;
-  }
-  
-  .search-icon {
-    margin-right:10px;
-  }
-  /* Additional Class for Scrolling */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo .logo {
+  width: 200px;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.navbar-logo span {
+  font-size: 1.5rem;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 45px;
+  font-size: 14px;
+}
+
+.navbar-links li {
+  display: inline;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  transition: color 0.3s;
+  text-transform: uppercase;
+}
+
+.navbar-links a:hover {
+  color: #ffffff; /* Slight hover effect */
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.navbar-search-btn {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  color: red;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-right: 100px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.navbar-search-btn:hover {
+  background-color: #ffffff;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.search-icon {
+  margin-right:10px;
+}
+
+/* Additional Class for Scrolling */
 .navbar.scrolled {
   background-color: rgb(255, 0, 0); /* White background on scroll */
   color: rgb(255, 255, 255); /* Change text color to black when the background is white */
@@ -102,21 +101,96 @@
   color: rgb(255, 0, 0); /* Change button text color */
   background-color: rgb(255, 255, 255); /* Make the search button background transparent */
 }
-.contact-us-btn{
+
+.contact-us-btn {
   text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    color: white;
-    transition: color 0.3s;
-    text-transform: uppercase;
-    margin-top: 0px ;
-    padding-top: 0px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  transition: color 0.3s;
+  text-transform: uppercase;
+  margin-top: 0px ;
+  padding-top: 0px;
 }
 
-.contact-us-btn:hover{
+.contact-us-btn:hover {
   color: #ffffff; /* Slight hover effect */
   font-size: 16px;
   font-weight: bold;
   background-color: red;
 }
 
+/* Mobile View Styling */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Space between logo and toggle button */
+  }
+
+  .navbar-logo {
+    width: auto; /* Allow logo to take natural size */
+    margin-left: 0;
+    flex: 1; /* Ensure logo takes left space */
+  }
+
+  .navbar-logo .logo {
+    width: 100px; /* Reduce logo size for smaller screens */
+    margin-right: 10px;
+  }
+
+  .navbar-links {
+    display: none; /* Hide links initially */
+    flex-direction: column; /* Stack links vertically */
+    background-color: red; /* Dropdown background color */
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 15px 0;
+    z-index: 999;
+  }
+
+  .navbar-links.mobile-open {
+    display: flex; /* Show links when menu is toggled */
+  }
+
+  .navbar-links li {
+    margin: 10px 0; /* Add spacing between menu items */
+    text-align: center;
+  }
+
+  .navbar-links a {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .navbar-search-btn {
+    display: none; /* Hide search button in mobile view */
+  }
+
+  /* Show the mobile toggle button only in mobile view */
+  .navbar-toggle-btn {
+    display: block; /* Show toggle button */
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px; /* Adjust position */
+    flex: 1;
+    text-align: right; /* Align toggle button to the right */
+  }
+
+  .contact-us-btn {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+/* Hide the toggle button in desktop view */
+@media screen and (min-width: 769px) {
+  .navbar-toggle-btn {
+    display: none; /* Hide the toggle button in desktop view */
+  }
+}
