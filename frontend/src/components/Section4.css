@@ -51,3 +51,35 @@
   .sign-up-button:hover {
     background-color: #cc0000;
   }
+/* Responsive Design for Mobile View */
+@media (max-width: 768px) {
+  .section4 {
+    padding: 15px; /* Reduce padding for smaller screens */
+    margin-bottom: 100px; /* Adjust bottom margin for compactness */
+  }
+
+  .newsletter-title {
+    font-size: 28px; /* Reduce font size for smaller screens */
+    margin-bottom: 20px; /* Add spacing for better readability */
+    text-align: center; /* Center-align the title */
+  }
+
+  .newsletter-form {
+    flex-direction: column; /* Stack input and button vertically */
+    gap: 15px; /* Increase gap for better spacing */
+    margin-top: 20px; /* Adjust margin for compact layout */
+    width: 100%; /* Ensure form fits the screen */
+  }
+
+  .email-input {
+    width: 100%; /* Full width for smaller screens */
+    font-size: 14px; /* Adjust font size for better fit */
+    padding: 10px; /* Maintain comfortable padding */
+  }
+
+  .sign-up {
+    font-size: 14px; /* Reduce button font size */
+    padding: 10px 15px; /* Adjust padding for smaller screens */
+    width: 100%; /* Full width for the button */
+  }
+}

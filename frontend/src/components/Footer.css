@@ -51,4 +51,48 @@
   .footer-contact p {
     margin: 5px 0;
   }
-  
+  /* Responsive Design for Mobile View */
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 10px; /* Reduce padding for smaller screens */
+    height: auto; /* Allow dynamic height based on content */
+    margin-top: 100px; /* Adjust margin for compact layout */
+    width: 100%;
+  }
+
+  .footer-container {
+    flex-direction: column; /* Stack items vertically */
+    gap: 30px; /* Increase gap for clarity */
+    align-items: center; /* Center-align the content */
+  }
+
+  .footer-logo img {
+    max-width: 200px; /* Reduce logo size for smaller screens */
+  }
+
+  .footer-links {
+    flex-direction: column; /* Stack links vertically */
+    align-items: center; /* Center-align links */
+    gap: 10px; /* Reduce gap for compact layout */
+  }
+
+  .footer-links ul {
+    text-align: center; /* Center-align list items */
+  }
+
+  .footer-links li {
+    font-size: 14px; /* Adjust font size for readability */
+  }
+
+  .footer-description {
+    max-width: 100%; /* Allow full width for description */
+    text-align: center; /* Center-align the text */
+    font-size: 14px; /* Adjust font size for readability */
+    line-height: 1.5; /* Adjust line height for better spacing */
+  }
+
+  .footer-contact p {
+    font-size: 14px; /* Adjust font size for readability */
+    text-align: center; /* Center-align contact information */
+  }
+}

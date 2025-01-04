@@ -59,3 +59,43 @@
   color: #666666; /* Subtle gray color */
   line-height: 1.5;
 }
+/* Mobile View Styling */
+@media screen and (max-width: 768px) {
+  /* Section Container */
+  .section2 {
+    padding: 30px 15px; /* Adjusted padding for smaller screens */
+  }
+
+  /* Title */
+  .section-title {
+    font-size: 2rem; /* Slightly smaller font size */
+    margin-top: 30px; /* Reduced top margin */
+    margin-bottom: 20px; /* Reduced bottom margin */
+  }
+
+  /* Features Container */
+  .features-container {
+    flex-direction: column; /* Stack feature cards vertically */
+    align-items: center; /* Center-align cards */
+    gap: 20px; /* Reduce gap between cards */
+  }
+
+  /* Feature Card */
+  .feature-card {
+    width: 90%; /* Take up most of the width on smaller screens */
+    padding: 15px; /* Adjust padding for a more compact layout */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Slightly lighter shadow */
+  }
+
+  /* Feature Title */
+  .feature-title {
+    font-size: 1rem; /* Adjusted font size for better fit */
+    margin-bottom: 8px; /* Slightly reduced margin */
+  }
+
+  /* Feature Description */
+  .feature-description {
+    font-size: 0.8rem; /* Slightly smaller text for compactness */
+    line-height: 1.4; /* Adjusted line height for readability */
+  }
+}

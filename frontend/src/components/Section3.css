@@ -88,20 +88,54 @@
   font-size: 1.2rem; /* Adjust icon size to match the button text */
 }
 
-/* Responsive Design */
+/* Responsive Design for Mobile View */
 @media (max-width: 768px) {
+  /* Section Container */
   .section3 {
-    flex-wrap: wrap; /* Allow cards to stack on smaller screens */
-    gap: 20px;
+    flex-wrap: wrap; /* Allow cards to stack vertically */
+    gap: 20px; /* Reduce gap for better spacing */
+    justify-content: center; /* Center-align stacked cards */
+    padding: 30px 15px; /* Adjust padding for smaller screens */
   }
 
+  /* Card Styles */
   .section3-card {
-    max-width: 100%; /* Full width on smaller screens */
+    max-width: 90%; /* Reduce card width for smaller screens */
     height: auto; /* Remove fixed height for flexibility */
+    padding: 30px; /* Adjust padding for compactness */
+    margin: 0 auto; /* Center-align cards */
   }
 
+  /* Title */
+  .section3-title {
+    font-size: 1.8rem; /* Slightly reduce font size */
+    margin-bottom: 15px; /* Adjust spacing */
+    line-height: 1.4; /* Optimize line spacing */
+  }
+
+  /* Button */
   .section3-button {
-    font-size: 1rem;
+    font-size: 1rem; /* Reduce button font size */
     padding: 10px 20px; /* Adjust button size for smaller screens */
   }
+
+  /* Contact Info */
+  .contact-info {
+    font-size: 1.2rem; /* Slightly smaller text for mobile */
+    gap: 10px; /* Adjust gap for compactness */
+    margin-bottom: 15px; /* Reduce margin */
+  }
+
+  /* Phone Icon */
+  .phone-icon {
+    font-size: 1.8rem; /* Adjust icon size */
+  }
+
+  /* Search Icon */
+  .search-icon {
+    margin-right: 8px; /* Adjust spacing */
+    font-size: 1rem; /* Adjust size for smaller screens */
+  }
 }
+
+

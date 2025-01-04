@@ -1,112 +1,173 @@
 /* General Styling for the Car Details Page */
 .car-details-container {
-    margin-top: 150px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f9f9f9;
-    margin-bottom: 150px;
-    font-family: 'Montserrat', sans-serif;
+  margin-top: 150px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
+  margin-bottom: 150px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Car Details Card */
+.car-details-card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Car Image */
+.car-details-image-container {
+  align-self: center;
+  flex-shrink: 0;
+  width: 500px; /* Adjust the width of the image */
+  margin-right: 20px;
+}
+
+.car-details-image {
+  align-self: center;
+  width: 500px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Car Information */
+.car-details-info {
+  text-align: left;
+  width: 100%;
+}
+
+.car-details-info h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.car-details-info p {
+  font-size: 16px;
+  margin: 5px 0;
+  color: #555;
+}
+
+.car-details-info strong {
+  color: #000;
+}
+
+.features-list {
+  list-style-type: disc;
+  margin-left: 20px;
+  color: #555;
+}
+
+/* Back to Cars Button */
+.back-to-cars {
+  margin-top: 20px;
+}
+
+.back-button {
+  text-decoration: none;
+  color: white;
+  background-color: #ff0000;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #b30000;
+}
+
+/* Not Found Section */
+.not-found {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.not-found h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+.back-link {
+  text-decoration: none;
+  color: white;
+  background-color: #ff0000;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+  background-color: red;
+}
+
+/* Mobile View Styling */
+@media screen and (max-width: 768px) {
+  .car-details-container {
+    margin-top: 100px; /* Reduced margin for mobile */
+    padding: 10px;
   }
-  
-  /* Car Details Card */
+
   .car-details-card {
-    display: flex;
-    flex-direction: column;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 800px;
-    width: 100%;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 15px; /* Reduced padding */
+    margin-bottom: 10px;
   }
-  
-  /* Car Image */
+
   .car-details-image-container {
-    align-self: center;
-    flex-shrink: 0;
-    width: 500px; /* Adjust the width of the image */
-    margin-right: 20px;
+    width: 100%; /* Make the image container take full width */
+    margin-right: 0; /* Remove margin */
+    margin-bottom: 15px; /* Add some spacing below image */
   }
-  
+
   .car-details-image {
-    align-self: center;
-    width: 500px;
+    width: 100%; /* Ensure the image scales down */
     height: auto;
     border-radius: 8px;
   }
-  
-  /* Car Information */
+
   .car-details-info {
-    text-align: left;
-    width: 100%;
+    text-align: center; /* Center the text on mobile */
   }
-  
+
   .car-details-info h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #333;
+    font-size: 20px; /* Adjust font size for smaller screens */
   }
-  
+
   .car-details-info p {
-    font-size: 16px;
-    margin: 5px 0;
-    color: #555;
+    font-size: 14px; /* Adjust font size for smaller screens */
   }
-  
-  .car-details-info strong {
-    color: #000;
-  }
-  
+
   .features-list {
-    list-style-type: disc;
-    margin-left: 20px;
-    color: #555;
+    margin-left: 0; /* Remove left margin */
+    text-align: left;
+    font-size: 14px; /* Adjust font size */
   }
-  
-  /* Back to Cars Button */
+
   .back-to-cars {
     margin-top: 20px;
+    text-align: center; /* Center button on mobile */
   }
-  
+
   .back-button {
-    text-decoration: none;
-    color: white;
-    background-color: #ff0000;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+    font-size: 14px; /* Reduce font size for mobile */
+    padding: 8px 15px; /* Adjust padding */
   }
-  
-  .back-button:hover {
-    background-color: #b30000;
-  }
-  
-  /* Not Found Section */
-  .not-found {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
+
   .not-found h2 {
-    font-size: 24px;
-    color: #333;
+    font-size: 20px; /* Adjust font size for smaller screens */
   }
-  
+
   .back-link {
-    text-decoration: none;
-    color: white;
-    background-color: #ff0000;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+    font-size: 14px; /* Reduce font size */
+    padding: 8px 15px; /* Adjust padding */
   }
-  
-  .back-link:hover {
-    background-color: red;
-  }
-  
+}

@@ -35,7 +35,7 @@
   display: flex;
   gap: 30px; /* Adjusts space between columns */
   margin-top: 40px;
-  justify-content:space-between; /* Adjusts spacing between columns */
+  justify-content: space-between; /* Adjusts spacing between columns */
 }
 
 /* Row for columns */
@@ -48,9 +48,8 @@
 /* First Column with the Larger Card */
 .col-1 {
   flex: 0 0 45%; /* Larger column for the first card */
-   /* Space between the first and second columns */
+  /* Space between the first and second columns */
 }
-
 
 .large-card {
   flex: 1;
@@ -92,16 +91,14 @@
   flex: 0.5 0.5 80%; /* Smaller columns for the two cards */
   display: flex;
   flex-direction: column;
-  padding-right: 50px;
-  padding-left: 50px;
- /* Smaller gap between the two smaller cards */
+  margin-right: 50px;
+  margin-left: 50px;
 }
+
 .col-3 {
   flex: 0.5 0.5 80%; /* Smaller columns for the two cards */
   display: flex;
-  flex-direction: column; /* Smaller gap between the two smaller cards */
-  
-  
+  flex-direction: column;
 }
 
 .col {
@@ -146,4 +143,89 @@
   margin: 0;
   color: red;
   margin-bottom: 20px;
+}
+
+/* Mobile View Styling */
+@media screen and (max-width: 768px) {
+  /* Adjust Card Container for Single Column */
+  .card-container {
+    flex-direction: column; /* Stack cards vertically */
+    gap: 20px; /* Adjust gap between cards */
+    align-items: center; /* Center align cards */
+  }
+
+  /* Row Adjustments */
+  .row {
+    flex-direction: column; /* Stack rows vertically */
+    gap: 20px; /* Adjust gap between rows */
+  }
+
+  /* Column Adjustments */
+  .col-1{
+    flex: 1 1 auto; /* Make all columns auto-sized and consistent */
+    width: 100%; /* Ensure columns span the full width of the container */
+    margin-bottom: 20px; /* Add spacing between columns */
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .col-2{
+    flex: 1 1 auto; /* Make all columns auto-sized and consistent */
+    width: 100%; /* Ensure columns span the full width of the container */
+    margin-bottom: 20px; /* Add spacing between columns */
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .col-3 {
+    flex: 1 1 auto; /* Make all columns auto-sized and consistent */
+    width: 100%; /* Ensure columns span the full width of the container */
+    margin-bottom: 20px; /* Add spacing between columns */
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  /* Card Adjustments */
+  .card {
+    width: 100%; /* Ensure all cards span full width */
+    max-width: 300px; /* Optional: Add max-width to limit card size */
+    margin: 0 auto; /* Center cards horizontally */
+  }
+
+  .card-text {
+    padding: 10px;
+    text-align: center;
+    margin-left: 0; /* Remove left margin */
+  }
+
+  .card-text h2 {
+    font-size: 1.2rem; /* Adjust font size for headings */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .card-text p {
+    font-size: 1rem;
+    margin: 0;
+    color: red;
+    margin-bottom: 20px;
+  }
+
+  /* Fix Card Height Consistency */
+  .card-container > .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto; /* Reset height for auto sizing */
+  }
+
+  /* Ensure consistent height for cards */
+  .card-container > .card .card-image {
+    flex: 0 0 auto;
+    height: 200px; /* Set a consistent height for images */
+    object-fit: cover; /* Ensure images maintain aspect ratio */
+  }
+
+  .card-container > .card .card-text {
+    flex: 1 1 auto;
+  }
 }

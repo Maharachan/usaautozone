@@ -21,7 +21,6 @@
   display: flex;
   align-items: center;
   margin-top: 135px;
-  
 }
 
 .filter-group {
@@ -91,6 +90,7 @@
 .search-button i {
   font-size: 16px;
 }
+
 .centered-text {
   color: #ffffff; /* White color for centered text */
   font-size: 50px; /* Adjust size for headings */
@@ -99,6 +99,7 @@
   text-align: center;
   margin-top: 50px; /* Space above the text */
 }
+
 .left-aligned-text {
   color: #ffffff; /* Black color for left-aligned text */
   font-size: 28px; /* Adjust size as needed */
@@ -108,6 +109,7 @@
   font-weight: bolder;
   margin-left: -1000px;
 }
+
 .left-aligned-text1 {
   color: #ffffff; /* Black color for left-aligned text */
   font-size: 18px; /* Adjust size as needed */
@@ -116,4 +118,68 @@
   font-weight: 600;
   margin-top: 0px;
   margin-left: -825px;
+}
+
+/* Mobile View Styling */
+@media screen and (max-width: 768px) {
+  /* Hero Section Adjustments */
+  .hero-section {
+    height: auto; /* Adjust height for smaller screens */
+    padding: 20px;
+    background: #ff0b0b;
+    width: 100%
+  }
+
+  /* Search Container Adjustments */
+  .search-container {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 100px;
+    width: 70%; /* Make it full-width */
+    box-shadow: none; /* Remove shadow for smaller screens */
+    border-radius: 10px;
+  }
+
+  /* Filter Group Adjustments */
+  .filter-group {
+    display: block; /* Stack filters vertically */
+    gap: 30px;
+  }
+
+  .filter {
+    width: 60%; /* Make filters full-width */
+    margin-bottom: 10px; /* Add space between filters */
+  }
+
+  /* Search Button Adjustments */
+  .search-button {
+    margin-left: 60px;
+    margin-top: 10px;
+    width: 20%;
+    font-size: 20px; /* Increase font size */
+  }
+
+  /* Centered Text Adjustments */
+  .centered-text {
+    font-size: 25px; /* Smaller font size on mobile */
+    margin-top: 40px;
+  }
+
+  /* Left-Aligned Text Adjustments */
+  .left-aligned-text {
+    font-size: 18px; /* Adjust font size for mobile */
+    margin-left: 0;
+    margin-top: 30px;
+    text-align: center; /* Center align text */
+  }
+
+  /* Left-Aligned Text1 Adjustments */
+  .left-aligned-text1 {
+    font-size: 16px;
+    margin-left: 0;
+    text-align: center; /* Center align text */
+    margin-bottom: 50px;
+  }
 }
