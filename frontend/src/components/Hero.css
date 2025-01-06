@@ -127,8 +127,7 @@
     height: auto; /* Adjust height for smaller screens */
     padding: 20px;
     background: #ff0b0b;
-    width: 100%
-  }
+    }
 
   /* Search Container Adjustments */
   .search-container {

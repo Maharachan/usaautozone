@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './Admin1.css'; // Import the Admin CSS for styling
+import './Admin1.css';
 
 function AdminPage({ onAddCar }) {
   const [newCar, setNewCar] = useState({
@@ -11,52 +11,50 @@ function AdminPage({ onAddCar }) {
     features: "",
     price: "",
   });
-  const [image, setImage] = useState(null);
+  const [images, setImages] = useState([]); // Handle multiple images
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false); // Track success state
+  const [success, setSuccess] = useState(false);
 
-  // Handle form input changes
   const handleChange = (e) => {
     setNewCar({ ...newCar, [e.target.name]: e.target.value });
   };
 
-  // Handle file input change
   const handleFileChange = (e) => {
-    setImage(e.target.files[0]);
+    setImages([...e.target.files]); // Store multiple selected files
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Clear any previous errors
+    setError("");
+    setSuccess(false); // Reset success state in case of retry
 
-    // Create FormData object to send text and file data
+    // Create FormData object
     const formData = new FormData();
     Object.keys(newCar).forEach((key) => {
       formData.append(key, newCar[key]);
     });
-    if (image) formData.append("image", image);
+    
+    // Append each image file
+    images.forEach((image) => {
+      formData.append("images", image); // Append each image with the same key
+    });
 
     try {
-      // Make the API request to add the car
       const response = await fetch("http://localhost:5000/api/cars", {
         method: "POST",
         body: formData,
       });
 
-      // Check if the response is OK, otherwise throw an error
       const data = await response.json();
       if (!response.ok) {
-        throw new Error(data.message || "Failed to add car");
+        throw new Error(data.error || "Failed to add car");
       }
 
-      // Notify parent component that a new car has been added
-      onAddCar(data);
+      // Call onAddCar function to update the parent state
+      onAddCar(data.car);
 
-      // Set success state to true after successful car addition
+      // Set success state and reset the form
       setSuccess(true);
-
-      // Reset form after successful car addition
       setNewCar({
         name: "",
         year: "",
@@ -66,16 +64,14 @@ function AdminPage({ onAddCar }) {
         features: "",
         price: "",
       });
-      setImage(null);
+      setImages([]); // Clear the image input
     } catch (err) {
-      // Set error message if the request fails
-      setError(err.message);
+      setError(err.message); // Display error message
     }
   };
 
-  // Handle "Add another car" click
   const handleAddAnotherCar = () => {
-    setSuccess(false); // Reset success state to show the form again
+    setSuccess(false); // Reset success state
     setNewCar({
       name: "",
       year: "",
@@ -85,14 +81,12 @@ function AdminPage({ onAddCar }) {
       features: "",
       price: "",
     });
-    setImage(null);
+    setImages([]); // Clear the image input
   };
 
   return (
     <div className="admin-page">
       <h1>ADD A NEW VEHICLE</h1>
-
-      {/* Show success message and "Add Another Car" button if the car was added successfully */}
       {success ? (
         <div>
           <p className="success-message">New car added successfully!</p>
@@ -116,9 +110,16 @@ function AdminPage({ onAddCar }) {
           />
           <input
             type="text"
+            name="model"
+            placeholder="Model"
+            value={newCar.model}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
             name="miles"
             placeholder="Miles"
-            value={newCar.mile}
+            value={newCar.miles}
             onChange={handleChange}
           />
           <input
@@ -150,12 +151,13 @@ function AdminPage({ onAddCar }) {
           />
           <input
             type="file"
-            name="image"
+            name="images"
             accept="image/*"
+            multiple
             onChange={handleFileChange}
           />
           {error && <p className="error">{error}</p>}
-          <button type="submit1">Add Car</button>
+          <button type="submit">Add Car</button>
         </form>
       )}
     </div>

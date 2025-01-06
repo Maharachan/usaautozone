@@ -11,6 +11,10 @@ const Car = sequelize.define("Car", {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  model: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   miles: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -27,12 +31,10 @@ const Car = sequelize.define("Car", {
     type: DataTypes.TEXT, // Store as comma-separated values in the database
     allowNull: false,
     get() {
-      // Convert stored comma-separated values back into an array
       const rawFeatures = this.getDataValue("features");
       return rawFeatures ? rawFeatures.split(",") : [];
     },
     set(value) {
-      // Convert array into comma-separated string before storing
       this.setDataValue("features", Array.isArray(value) ? value.join(",") : value);
     },
   },
@@ -40,9 +42,16 @@ const Car = sequelize.define("Car", {
     type: DataTypes.DECIMAL(10, 2),
     allowNull: false,
   },
-  image: {
-    type: DataTypes.BLOB("long"), // Store binary data (LONGBLOB equivalent in MySQL)
+  images: {
+    type: DataTypes.JSON, // Store an array of image metadata as JSON
     allowNull: false,
+    get() {
+      const rawImages = this.getDataValue("images");
+      return rawImages ? JSON.parse(rawImages) : [];
+    },
+    set(value) {
+      this.setDataValue("images", JSON.stringify(value));
+    },
   },
 }, {
   timestamps: true, // Automatically manage createdAt and updatedAt

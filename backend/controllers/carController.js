@@ -1,53 +1,68 @@
 const multer = require("multer");
 const Car = require("../models/Car");
 
-// Multer setup for file uploads
-const storage = multer.memoryStorage(); // Store files in memory (as a buffer)
-const upload = multer({ storage });
+// Configure multer for image uploads
+const storage = multer.memoryStorage(); // Using memory storage for simplicity; switch to diskStorage if needed
+const upload = multer({
+  storage,
+  limits: { fileSize: 5 * 1024 * 1024 }, // Limit file size to 5MB
+}).array("images", 10); // Accept up to 10 images per car
 
-// Add a new car
 const addCar = async (req, res) => {
   try {
-    const { name, year, miles, transmission, fuel, features, price } = req.body;
-    const image = req.file; // Get the uploaded image
+    // Extract car details from the request body
+    const { name, year, model, miles, transmission, fuel, features, price } = req.body;
 
-    // Validate input data
-    if (!name || !year || !miles || !transmission || !fuel || !features || !price || !image) {
-      return res.status(400).json({ message: "All fields, including an image, are required." });
+    // Check if images are present in the request
+    const images = req.files;
+
+    if (!images || images.length === 0) {
+      return res.status(400).json({ error: "At least one image is required." });
     }
 
-    // Save the car data in the database
+    // Perform basic validation for car details
+    if (!name || !year || !price) {
+      return res.status(400).json({ error: "Name, year, and price are required fields." });
+    }
+
+    // Map images to their binary data (buffer)
+    const imageBuffers = images.map((image) => image.buffer);
+
+    // Save car details to the database
     const car = await Car.create({
       name,
-      year: parseInt(year, 10), // Convert year to an integer
+      year,
+      model,
       miles,
       transmission,
       fuel,
-      features: features.split(","), // Convert features string to an array
-      price: parseFloat(price), // Convert price to a float
-      image: image.buffer, // Save image as a BLOB
+      features: features ? features.split(",") : [], // Split features if provided
+      price,
+      images: imageBuffers, // Store image buffers in the database (binary data)
     });
 
-    res.status(201).json({
-      message: "Car added successfully.",
+    // Return success response
+    return res.status(201).json({
+      message: "Car added successfully",
       car: {
-        id: car.id,
         name: car.name,
         year: car.year,
+        model:car.model,
         miles: car.miles,
         transmission: car.transmission,
         fuel: car.fuel,
         features: car.features,
         price: car.price,
+        images: car.images.length,
       },
     });
   } catch (error) {
     console.error("Error adding car:", error);
-    res.status(500).json({ message: "Error adding car.", error: error.message });
+    return res.status(500).json({ error: "Failed to add car. Please try again." });
   }
 };
 
 module.exports = {
+  upload,
   addCar,
-  upload, // Export Multer middleware for use in routes
 };

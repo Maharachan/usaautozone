@@ -57,7 +57,6 @@
     padding: 20px 10px; /* Reduce padding for smaller screens */
     height: auto; /* Allow dynamic height based on content */
     margin-top: 100px; /* Adjust margin for compact layout */
-    width: 100%;
   }
 
   .footer-container {

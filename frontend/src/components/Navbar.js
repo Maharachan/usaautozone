@@ -28,9 +28,11 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      {/* Logo Section */}
+      {/* Logo Section - Navigate to Home on Click */}
       <div className="navbar-logo">
-        <img src={logo} alt="USA Auto Zone" className="logo" />
+        <RouterLink to="/" onClick={handleMenuItemClick}>
+          <img src={logo} alt="USA Auto Zone" className="logo" />
+        </RouterLink>
       </div>
 
       {/* Toggle Button for Mobile View */}
@@ -41,13 +43,19 @@ const Navbar = () => {
       {/* Navigation Links */}
       <ul className={`navbar-links ${isMobileMenuOpen ? "mobile-open" : ""}`}>
         <li>
-          <RouterLink to="/" onClick={handleMenuItemClick}>Home</RouterLink>
+          <RouterLink to="/" onClick={handleMenuItemClick}>
+            Home
+          </RouterLink>
         </li>
         <li>
-          <RouterLink to="/cars" onClick={handleMenuItemClick}>Cars</RouterLink>
+          <RouterLink to="/cars" onClick={handleMenuItemClick}>
+            Cars
+          </RouterLink>
         </li>
         <li>
-          <RouterLink to="/admin" onClick={handleMenuItemClick}>Admin</RouterLink>
+          <RouterLink to="/admin" onClick={handleMenuItemClick}>
+            Admin
+          </RouterLink>
         </li>
         <li>
           {/* Trigger scroll to Section4 */}
