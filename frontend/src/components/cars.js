@@ -161,17 +161,24 @@ function Cars() {
             <div key={car.id} className="car-card">
               <div className="car-card-content">
                 {/* Car Image */}
-                <div className="car-image">
-                  <img
-                    src={`data:image/jpeg;base64,${btoa(
-                      new Uint8Array(car.image.data).reduce(
-                        (data, byte) => data + String.fromCharCode(byte),
-                        ""
-                      )
-                    )}`}
-                    alt={car.name}
-                    className="car-image-img"
-                  />
+                <div className="car-images">
+                  {car.images && car.images.length > 0 ? (
+                    car.images.map((image, index) => (
+                      <img
+                        key={index}
+                        src={`data:image/jpeg;base64,${btoa(
+                          new Uint8Array(image).reduce(
+                            (data, byte) => data + String.fromCharCode(byte),
+                            ""
+                          )
+                        )}`}
+                        alt={`${car.name} ${index + 1}`}
+                        className="car-image-img"
+                      />
+                    ))
+                  ) : (
+                    <p>No images available</p>
+                  )}
                 </div>
 
                 {/* Car Details */}

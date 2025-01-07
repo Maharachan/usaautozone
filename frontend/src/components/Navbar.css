@@ -121,11 +121,16 @@
 }
 
 /* Mobile View Styling */
+/* Mobile View Styling */
 @media screen and (max-width: 768px) {
   .navbar {
-    padding: 10px 15px;
+    padding: 10px;
     flex-wrap: wrap;
     justify-content: space-between; /* Space between logo and toggle button */
+    width: 100%; /* Ensure the navbar fits within the screen */
+    box-sizing: border-box; /* Include padding in the width calculation */
+    padding-top: 25px;
+    padding-bottom: 25px;
   }
 
   .navbar-logo {
@@ -135,34 +140,36 @@
   }
 
   .navbar-logo .logo {
-    width: 100px; /* Reduce logo size for smaller screens */
+    width: 200px; /* Reduce logo size for smaller screens */
     margin-right: 10px;
   }
 
   .navbar-links {
     display: none; /* Hide links initially */
     flex-direction: column; /* Stack links vertically */
-    background-color: red; /* Dropdown background color */
-    width: 100%;
+    background-color: rgb(255, 255, 255); /* Dropdown background color */
+    width: 100%; /* Ensure links dropdown fits within screen width */
     position: absolute;
     top: 100%;
     left: 0;
     padding: 15px 0;
     z-index: 999;
+    box-sizing: border-box; /* Include padding in width calculation */
   }
 
   .navbar-links.mobile-open {
     display: flex; /* Show links when menu is toggled */
+    padding: 50px;
   }
 
   .navbar-links li {
-    margin: 10px 0; /* Add spacing between menu items */
     text-align: center;
   }
 
   .navbar-links a {
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 100;
+    color: #000000;
   }
 
   .navbar-search-btn {
@@ -175,7 +182,7 @@
     background: none;
     border: none;
     font-size: 24px;
-    color: white;
+    color: rgb(255, 255, 255);
     cursor: pointer;
     margin-left: 10px; /* Adjust position */
     flex: 1;
@@ -185,8 +192,11 @@
   .contact-us-btn {
     font-size: 16px;
     text-align: center;
+    color: #ff0000;
+    background-color: #ffffff;
   }
 }
+
 
 /* Hide the toggle button in desktop view */
 @media screen and (min-width: 769px) {
