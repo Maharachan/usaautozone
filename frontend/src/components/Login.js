@@ -1,42 +1,43 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // To navigate after successful login
-import "./Login.css"
+import "./Login.css";
 
 function Login({ onLoginSuccess }) {
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
   });
-  
+
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false); // To handle loading state during API call
+  const [loading, setLoading] = useState(false); // To handle loading state
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setError(""); // Clear previous error message
     setLoading(true); // Start loading state
-  
+
+    // Static username and password
+    const staticUsername = "admin";
+    const staticPassword = "123";
+
     try {
-      // Hardcoded URL for the backend API
-      const response = await fetch("http://localhost:5000/api/admin/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(credentials), // credentials contain username and password
-      });
-  
-      const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.message || "Login failed. Please try again.");
+      // Check if entered credentials match the static values
+      if (
+        credentials.username === staticUsername &&
+        credentials.password === staticPassword
+      ) {
+        // Simulate a successful login
+        localStorage.setItem("token", "static-token"); // Save a dummy token to localStorage
+        onLoginSuccess(); // Trigger parent callback
+        navigate("/admin"); // Redirect to admin page
+      } else {
+        throw new Error("Invalid username or password.");
       }
-  
-      localStorage.setItem("token", data.token); // Save token to localStorage
-      onLoginSuccess(); // Trigger parent callback
-      navigate("/admin"); // Redirect to admin page
     } catch (err) {
       setError(err.message); // Display error message if login fails
     } finally {
@@ -63,7 +64,7 @@ function Login({ onLoginSuccess }) {
           onChange={handleChange}
         />
         {error && <p className="error">{error}</p>} {/* Display error if any */}
-        <button type="submit2" disabled={loading}>
+        <button type="submit" disabled={loading}>
           {loading ? "Logging in..." : "Login"}
         </button>
       </form>

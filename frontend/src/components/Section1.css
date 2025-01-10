@@ -1,231 +1,140 @@
-/* Section1.css */
-
-/* General section styles */
-.section1 {
-  padding: 40px;
-  font-family: 'Montserrat', sans-serif;
+.car-listing-container {
+  position: relative;
+  padding-top: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
-/* Heading styles */
-.heading {
+.carousel-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   margin-bottom: 30px;
 }
 
-.heading-red {
-  color: red;
+.our-text {
+  font-size: 19px;
   font-weight: 100;
-  font-size: 1.5rem;
-  text-align: left;
-  margin-top: 40px;
-  margin-bottom: 0px;
-  margin-left: 20px;
+  color: #000000;
+  margin-top: 35px;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.heading-dark {
-  color: #191919;
-  font-weight: bolder;
-  font-size: 2.5rem;
-  text-align: left;
+.featured-cars-heading {
+  font-size: 32px;
+  font-weight: bold;
+  color: #ff0000;
   margin-top: 10px;
-  margin-left: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* Card Container */
-.card-container {
-  display: flex;
-  gap: 30px; /* Adjusts space between columns */
-  margin-top: 40px;
-  justify-content: space-between; /* Adjusts spacing between columns */
-}
-
-/* Row for columns */
-.row {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-
-/* First Column with the Larger Card */
-.col-1 {
-  flex: 0 0 45%; /* Larger column for the first card */
-  /* Space between the first and second columns */
-}
-
-.large-card {
-  flex: 1;
-}
-
-.card {
-  background-color: #191919; /* Card background color */
-  border-radius: 10px;
+.car-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  color: white; /* Text color inside the card */
+  text-decoration: none;
+  color: inherit;
 }
 
-.card-image {
+.car-image {
+  position: relative;
+}
+
+.car-image img {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  display: block;
 }
 
-.card-text {
-  padding: 10px;
-  text-align: left;
-  margin-left: 10px;
+.price-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgb(255, 0, 0);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
-.card-text h2 {
-  font-size: 1.5rem;
-  margin-bottom: 5px;
+.current-price {
+  font-size: 16px;
+  font-weight: bold;
 }
 
-.card-text p {
-  font-size: 1rem;
-  margin: 0;
-  color: red;
-  margin-bottom: 20px;
+.old-price {
+  font-size: 14px;
+  text-decoration: line-through;
+  margin-left: 5px;
 }
 
-/* Second and Third Columns with Two Smaller Cards */
-.col-2 {
-  flex: 0.5 0.5 80%; /* Smaller columns for the two cards */
-  display: flex;
-  flex-direction: column;
-  margin-right: 50px;
-  margin-left: 50px;
+.car-details {
+  padding: 15px;
 }
 
-.col-3 {
-  flex: 0.5 0.5 80%; /* Smaller columns for the two cards */
-  display: flex;
-  flex-direction: column;
+.car-details h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
 }
 
-.col {
-  flex: 1;
-}
-
-.small-card {
-  flex: 1;
-  background-color: #191919;
-  border-radius: 10px;
-  overflow: hidden;
-  color: white;
-}
-
-/* Small Cards Styles */
-.card-container {
-  display: flex;
-  gap: 40px;
-  justify-content: space-between;
-}
-
-.card-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.card-text {
-  padding: 10px;
-  text-align: left;
-  margin-left: 10px;
-}
-
-.card-text h2 {
-  font-size: 1.5rem;
-  margin-bottom: 5px;
-  text-transform: uppercase;
-}
-
-.card-text p {
-  font-size: 1rem;
-  margin: 0;
-  color: red;
-  margin-bottom: 20px;
+.car-details p {
+  font-size: 14px;
+  color: #777;
 }
 
 /* Mobile View Styling */
 @media screen and (max-width: 768px) {
-  /* Adjust Card Container for Single Column */
-  .card-container {
-    flex-direction: column; /* Stack cards vertically */
-    gap: 20px; /* Adjust gap between cards */
-    align-items: center; /* Center align cards */
+  .car-listing-container {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 20px;
   }
 
-  /* Row Adjustments */
-  .row {
-    flex-direction: column; /* Stack rows vertically */
-    gap: 20px; /* Adjust gap between rows */
+  .carousel-header {
+    align-items: center;
   }
 
-  /* Column Adjustments */
-  .col-1{
-    flex: 1 1 auto; /* Make all columns auto-sized and consistent */
-    width: 100%; /* Ensure columns span the full width of the container */
-    margin-bottom: 20px; /* Add spacing between columns */
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-  .col-2{
-    flex: 1 1 auto; /* Make all columns auto-sized and consistent */
-    width: 100%; /* Ensure columns span the full width of the container */
-    margin-bottom: 20px; /* Add spacing between columns */
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-  .col-3 {
-    flex: 1 1 auto; /* Make all columns auto-sized and consistent */
-    width: 100%; /* Ensure columns span the full width of the container */
-    margin-bottom: 20px; /* Add spacing between columns */
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-
-  /* Card Adjustments */
-  .card {
-    width: 100%; /* Ensure all cards span full width */
-    max-width: 300px; /* Optional: Add max-width to limit card size */
-    margin: 0 auto; /* Center cards horizontally */
-  }
-
-  .card-text {
-    padding: 10px;
+  .our-text {
+    font-size: 16px;
     text-align: center;
-    margin-left: 0; /* Remove left margin */
+    margin-top: 20px;
   }
 
-  .card-text h2 {
-    font-size: 1.2rem; /* Adjust font size for headings */
-    margin-bottom: 5px;
-    text-transform: uppercase;
+  .featured-cars-heading {
+    font-size: 24px;
+    margin-top: 10px;
     text-align: center;
   }
 
-  .card-text p {
-    font-size: 1rem;
-    margin: 0;
-    color: red;
+  .car-card {
     margin-bottom: 20px;
   }
 
-  /* Fix Card Height Consistency */
-  .card-container > .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: auto; /* Reset height for auto sizing */
+  .price-tag {
+    top: 5px;
+    left: 5px;
+    padding: 4px 8px;
+    font-size: 12px;
   }
 
-  /* Ensure consistent height for cards */
-  .card-container > .card .card-image {
-    flex: 0 0 auto;
-    height: 200px; /* Set a consistent height for images */
-    object-fit: cover; /* Ensure images maintain aspect ratio */
+  .current-price {
+    font-size: 14px;
   }
 
-  .card-container > .card .card-text {
-    flex: 1 1 auto;
+  .old-price {
+    font-size: 12px;
+  }
+
+  .car-details {
+    padding: 10px;
+  }
+
+  .car-details h4 {
+    font-size: 16px;
+  }
+
+  .car-details p {
+    font-size: 12px;
   }
 }

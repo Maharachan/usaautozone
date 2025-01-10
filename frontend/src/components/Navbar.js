@@ -53,6 +53,12 @@ const Navbar = () => {
           </RouterLink>
         </li>
         <li>
+          {/* Link to Car Details */}
+          <RouterLink to="/cars/1" onClick={handleMenuItemClick}>
+            Car Details
+          </RouterLink>
+        </li>
+        <li>
           <RouterLink to="/admin" onClick={handleMenuItemClick}>
             Admin
           </RouterLink>

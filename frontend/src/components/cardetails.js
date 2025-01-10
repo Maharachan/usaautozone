@@ -1,125 +1,138 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom"; // For fetching params from the URL
 import "./cardetails.css";
 
+// Dummy car data for example, replace with actual data or fetch logic
+import image1 from "../assets/6.png"; // Replace with actual paths
+import image2 from "../assets/7.png";
+import image3 from "../assets/8.png";
+
+const carsData = [
+  {
+    id: 1,
+    brand: "Toyota",
+    model: "Corolla",
+    name: "Toyota Corolla 2020",
+    year: 2020,
+    miles: "35,000",
+    transmission: "Automatic",
+    fuel: "Gasoline",
+    owners: 1,
+    description: "A reliable sedan with great fuel economy.",
+    trim: "LE",
+    bodyStyle: "Sedan",
+    exteriorStyle: "Metallic",
+    interiorType: "Leather",
+    price: 22000,
+    discountedPrice: 19999,
+    features: [
+      "Fuel",
+      "Owners",
+      "Description",
+      "Trim",
+      "Body style",
+      "Exterior style",
+      "Interior type",
+    ],
+    images: [image1, image2, image3], // Array of image paths
+  },
+  // Add more cars if needed
+];
+
 function CarDetails() {
-  const { id } = useParams(); // Get the car ID from the URL
-  const [car, setCar] = useState(null); // State to hold the car data
-  const [loading, setLoading] = useState(true); // State for loading state
-  const [error, setError] = useState(null); // State for error handling
+  const { id } = useParams(); // Get the car ID from the URL params
+  const [car, setCar] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0); // To track the currently visible image
 
-  // Fetch car data when the component mounts
   useEffect(() => {
-    const fetchCarDetails = async () => {
-      try {
-        const response = await fetch(`http://localhost:5000/api/carsdata/fetch/${id}`); // Fetch the car details by ID
-        const data = await response.json();
+    // Find the car from the car data based on the ID from the URL
+    const selectedCar = carsData.find((car) => car.id === parseInt(id));
+    if (selectedCar) {
+      setCar(selectedCar);
+    }
+  }, [id]); // Only rerun the effect if the id changes
 
-        if (response.ok) {
-          setCar(data); // Set the fetched car data
-        } else {
-          throw new Error(data.message || "Car not found");
-        }
-      } catch (err) {
-        setError(err.message); // Set error message if something goes wrong
-      } finally {
-        setLoading(false); // Set loading to false after the request completes
-      }
-    };
-
-    fetchCarDetails(); // Call the function to fetch the car details
-  }, [id]); // Re-fetch if the ID changes
-
-  if (loading) {
-    return <p>Loading car details...</p>; // Show loading message
-  }
-
-  if (error) {
-    return (
-      <div className="not-found">
-        <h2>{error}</h2>
-        <Link to="/cars" className="back-link">
-          Back to Cars
-        </Link>
-      </div>
-    ); // Show error message
-  }
-
+  // If car is not found or is still loading, show a loading state or error message
   if (!car) {
-    return (
-      <div className="not-found">
-        <h2>Car not found</h2>
-        <Link to="/cars" className="back-link">
-          Back to Cars
-        </Link>
-      </div>
-    ); // If no car data found
+    return <div>Loading...</div>;
   }
+
+  const handleNextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex < car.images.length - 1 ? prevIndex + 1 : 0
+    );
+  };
+
+  const handlePreviousImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex > 0 ? prevIndex - 1 : car.images.length - 1
+    );
+  };
 
   return (
-    <div className="car-details-container">
-      {/* Car Details */}
-      <div className="car-details-card">
-        <div className="car-details-card-content">
-          {/* Multiple Car Images */}
-          <div className="car-details-images-container">
-            {car.images && car.images.length > 0 ? (
-              car.images.map((image, index) => (
-                <div key={index} className="car-image-wrapper">
-                  <img
-                    src={`data:image/jpeg;base64,${btoa(
-                      new Uint8Array(image.data).reduce(
-                        (data, byte) => data + String.fromCharCode(byte),
-                        ""
-                      )
-                    )}`}
-                    alt={`Car ${index + 1}`}
-                    className="car-details-image"
-                  />
-                </div>
-              ))
-            ) : (
-              <p>No images available for this car.</p>
-            )}
-          </div>
-
-          {/* Car Information */}
-          <div className="car-details-info">
-            <h2>{car.name}</h2>
-            <p>
-              <strong>Year:</strong> {car.year}
-            </p>
-            <p>
-              <strong>Miles:</strong> {car.miles}
-            </p>
-            <p>
-              <strong>Transmission:</strong> {car.transmission}
-            </p>
-            <p>
-              <strong>Fuel:</strong> {car.fuel}
-            </p>
-            <p>
-              <strong>Price:</strong> {car.price}
-            </p>
-            <h3>Features:</h3>
-            <ul className="features-list">
-              {car.features && car.features.length > 0 ? (
-                car.features.map((feature, index) => (
-                  <li key={index}>{feature}</li>
-                ))
-              ) : (
-                <li>No features available</li>
-              )}
-            </ul>
-          </div>
+    <div className="car-details-page">
+      {/* Car Image and Navigation */}
+      <div className="car-image-container">
+        <img
+          src={car.images[currentImageIndex]}
+          alt={car.model}
+          className="car-image"
+        />
+        <div className="image-navigation">
+          <button onClick={handlePreviousImage}>&lt; </button>
+          <button onClick={handleNextImage}> &gt;</button>
         </div>
       </div>
 
-      {/* Back to Cars Button */}
-      <div className="back-to-cars">
-        <Link to="/cars" className="back-button">
-          Back to Cars
-        </Link>
+      {/* Car Brand and Model */}
+      <div className="car-brand-model">
+        <h2>
+          {car.brand} {car.model}
+        </h2>
+      </div>
+
+      {/* Details and Contact Sections */}
+      <div className="car-details-sections">
+        {/* Car Details Section */}
+        <div className="car-details">
+          <h3>Car Details</h3>
+          <ul className="details-list">
+            <li>
+              <i className="fas fa-calendar-alt"></i> <strong>Year:</strong> {car.year}
+            </li>
+            <li>
+              <i className="fas fa-dollar-sign"></i> <strong>Price:</strong> ${car.discountedPrice}
+            </li>
+            <li>
+              <i className="fas fa-tachometer-alt"></i> <strong>Miles:</strong> {car.miles}
+            </li>
+            <li>
+              <i className="fas fa-cogs"></i> <strong>Transmission:</strong> {car.transmission}
+            </li>
+            <li>
+              <i className="fas fa-gas-pump"></i> <strong>Fuel:</strong> {car.fuel}
+            </li>
+            <li>
+              <i className="fas fa-user"></i> <strong>Owners:</strong> {car.owners}
+            </li>
+            <li>
+              <i className="fas fa-paint-brush"></i> <strong>Exterior Style:</strong> {car.exteriorStyle}
+            </li>
+            <li>
+              <i className="fas fa-couch"></i> <strong>Interior Type:</strong> {car.interiorType}
+            </li>
+            <li>
+              <i className="fas fa-align-left"></i> <strong>Description:</strong> {car.description}
+            </li>
+          </ul>
+        </div>
+
+        {/* Contact Buttons Section */}
+        <div className="contact-section">
+          <h3>Contact Us</h3>
+          <button className="contact-btn">Mail Us</button>
+          <button className="contact-btn">Contact Us</button>
+        </div>
       </div>
     </div>
   );
