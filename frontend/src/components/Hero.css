@@ -1,184 +1,143 @@
 /* Hero Section Styles */
 .hero-section {
-  background-image: url("../assets/bg3.png");
+  background-image: url("../assets/bg5.png");
   background-size: cover;
-  height: 110vh; /* Adjust height for responsiveness */
+  height: 100vh;
   background-position: center;
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
+  flex-direction: column;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
+  padding-top: 50px;
 }
 
-.search-container {
-  background-color: #ffffff;
-  padding-left: 100px;
-  padding-right: 120px;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  border-radius: 25px;
-  box-shadow: 0px 13px 1px rgb(255, 156, 156);
-  display: flex;
-  align-items: center;
-  margin-top: 135px;
-}
-
-.filter-group {
-  display: flex;
-  gap: 45px; /* Space between filters */
-}
-
-/* Dropdown (Select) Styling */
-.filter {
-  padding-left: 35px;
-  padding-right: 35px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  border: none;
-  border-radius: 8px;
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  font-size: 15px;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-weight: 600;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
-  appearance: none; /* Removes default browser styling */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  text-align: center;
-}
-
-/* Dropdown Options */
-.filter option {
-  background-color: #ffffff; /* Background of dropdown options */
-  color: #000000; /* Text color */
-  font-size: 14px;
-  font-weight: 500;
-  padding: 10px;
-  font-family: 'Montserrat', sans-serif;
-}
-
-/* Hover Effect for Dropdown Options */
-.filter option:hover {
-  background-color: #000000; /* Light gray on hover */
-  color: #ff0b0b; /* Change text color on hover */
-}
-
-/* Focused Dropdown */
-.filter:focus {
-  outline: none; /* Remove outline */
-  border: 2px solid #ff0b0b; /* Add border on focus */
-}
-
-/* Search Button */
-.search-button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 50%;
-  background-color: #ff0b0b;
-  color: white;
-  cursor: pointer;
-  font-size: 18px;
-  margin-left: 30px;
-}
-
-.search-button:hover {
-  background-color: #d00a0a;
-}
-
-.search-button i {
-  font-size: 16px;
-}
-
+/* Centered Title */
 .centered-text {
-  color: #ffffff; /* White color for centered text */
-  font-size: 50px; /* Adjust size for headings */
+  color: #ffffff;
+  font-size: 50px;
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  margin-top: 50px; /* Space above the text */
+  margin-bottom: 50px;
+  margin-top: 100px;
 }
 
-.left-aligned-text {
-  color: #ffffff; /* Black color for left-aligned text */
-  font-size: 28px; /* Adjust size as needed */
-  text-align: left; /* Align the text to the left */
-  max-width: 100%; /* Limit the width for better readability */
-  margin-top: 80px;
-  font-weight: bolder;
-  margin-left: -1000px;
+/* Contact Information Section */
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  width: 80%;
 }
 
-.left-aligned-text1 {
-  color: #ffffff; /* Black color for left-aligned text */
-  font-size: 18px; /* Adjust size as needed */
-  text-align: left; /* Align the text to the left */
-  max-width: 100%; /* Limit the width for better readability */
-  font-weight: 600;
-  margin-top: 0px;
-  margin-left: -825px;
+.contact-column {
+  background-color: rgba(255, 255, 255, 1);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  width: 700px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: center;
+}
+
+.contact-column-1 {
+  background-color: rgba(255, 255, 255, 1);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: center;
+}
+
+.contact-column-1 h3 {
+  font-size: 20px;
+  margin-top: 15px;
+  color: #000000;
+}
+
+.contact-column-1 p {
+  font-size: 15px;
+  margin-top: 10px;
+  color: #000000;
+}
+
+.contact-column h3 {
+  font-size: 20px;
+  margin-top: 15px;
+  color: #000000;
+}
+
+.contact-column p {
+  font-size: 15px;
+  margin-top: 10px;
+  color: #000000;
+}
+
+/* Icons Styling */
+.icon {
+  font-size: 30px;
+  color: #ff0000;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  margin-top: 5px;
+  align-items: center;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: #333;
+  font-size: 28px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #ff0b0b;
 }
 
 /* Mobile View Styling */
 @media screen and (max-width: 768px) {
-  /* Hero Section Adjustments */
   .hero-section {
-    height: auto; /* Adjust height for smaller screens */
+    height: auto;
     padding: 20px;
-    background: #ff0b0b;
-    }
-
-  /* Search Container Adjustments */
-  .search-container {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-top: 100px;
-    width: 70%; /* Make it full-width */
-    box-shadow: none; /* Remove shadow for smaller screens */
-    border-radius: 10px;
+    margin-top: 80px;
+    padding-bottom: 100px;
   }
 
-  /* Filter Group Adjustments */
-  .filter-group {
-    display: block; /* Stack filters vertically */
-    gap: 30px;
-  }
-
-  .filter {
-    width: 60%; /* Make filters full-width */
-    margin-bottom: 10px; /* Add space between filters */
-  }
-
-  /* Search Button Adjustments */
-  .search-button {
-    margin-left: 60px;
-    margin-top: 10px;
-    width: 20%;
-    font-size: 20px; /* Increase font size */
-  }
-
-  /* Centered Text Adjustments */
   .centered-text {
-    font-size: 25px; /* Smaller font size on mobile */
-    margin-top: 40px;
+    font-size: 30px;
+    margin-bottom: 20px;
+    margin-top: 50px;
   }
 
-  /* Left-Aligned Text Adjustments */
-  .left-aligned-text {
-    font-size: 18px; /* Adjust font size for mobile */
-    margin-left: 0;
-    margin-top: 30px;
-    text-align: center; /* Center align text */
+  .contact-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
   }
 
-  /* Left-Aligned Text1 Adjustments */
-  .left-aligned-text1 {
-    font-size: 16px;
-    margin-left: 0;
-    text-align: center; /* Center align text */
-    margin-bottom: 50px;
+  .contact-column,
+  .contact-column-1 {
+    width: 90%;
+    max-width: 500px;
+  }
+
+  .icon {
+    font-size: 24px;
+  }
+
+  .social-icons a {
+    font-size: 24px;
   }
 }

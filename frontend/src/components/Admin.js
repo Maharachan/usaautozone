@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './Admin1.css';
 
-function AdminPage({ onAddCar }) {
+function AdminPage() {
   const [newCar, setNewCar] = useState({
     name: "",
     year: "",
@@ -10,7 +10,12 @@ function AdminPage({ onAddCar }) {
     fuel: "",
     features: "",
     price: "",
+    owners: "",
+    exteriorStyle: "",
+    interiorType: "",
+    description: ""
   });
+  
   const [images, setImages] = useState([]); // Handle multiple images
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
@@ -23,51 +28,26 @@ function AdminPage({ onAddCar }) {
     setImages([...e.target.files]); // Store multiple selected files
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
-    setSuccess(false); // Reset success state in case of retry
+    setSuccess(true); // Mark as successful submission
 
-    // Create FormData object
-    const formData = new FormData();
-    Object.keys(newCar).forEach((key) => {
-      formData.append(key, newCar[key]);
+    // Reset form state after successful submission
+    setNewCar({
+      name: "",
+      year: "",
+      miles: "",
+      transmission: "",
+      fuel: "",
+      features: "",
+      price: "",
+      owners: "",
+      exteriorStyle: "",
+      interiorType: "",
+      description: ""
     });
-    
-    // Append each image file
-    images.forEach((image) => {
-      formData.append("images", image); // Append each image with the same key
-    });
-
-    try {
-      const response = await fetch("http://localhost:5000/api/cars", {
-        method: "POST",
-        body: formData,
-      });
-
-      const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to add car");
-      }
-
-      // Call onAddCar function to update the parent state
-      onAddCar(data.car);
-
-      // Set success state and reset the form
-      setSuccess(true);
-      setNewCar({
-        name: "",
-        year: "",
-        miles: "",
-        transmission: "",
-        fuel: "",
-        features: "",
-        price: "",
-      });
-      setImages([]); // Clear the image input
-    } catch (err) {
-      setError(err.message); // Display error message
-    }
+    setImages([]); // Clear the image input
   };
 
   const handleAddAnotherCar = () => {
@@ -80,6 +60,10 @@ function AdminPage({ onAddCar }) {
       fuel: "",
       features: "",
       price: "",
+      owners: "",
+      exteriorStyle: "",
+      interiorType: "",
+      description: ""
     });
     setImages([]); // Clear the image input
   };
@@ -93,7 +77,7 @@ function AdminPage({ onAddCar }) {
           <button onClick={handleAddAnotherCar}>Add Another Car</button>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} encType="multipart/form-data">
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             name="name"
@@ -106,13 +90,6 @@ function AdminPage({ onAddCar }) {
             name="year"
             placeholder="Year"
             value={newCar.year}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="model"
-            placeholder="Model"
-            value={newCar.model}
             onChange={handleChange}
           />
           <input
@@ -136,10 +113,31 @@ function AdminPage({ onAddCar }) {
             value={newCar.fuel}
             onChange={handleChange}
           />
+          <input
+            type="number"
+            name="owners"
+            placeholder="Owners"
+            value={newCar.owners}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="exteriorStyle"
+            placeholder="Exterior Style"
+            value={newCar.exteriorStyle}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="interiorType"
+            placeholder="Interior Type"
+            value={newCar.interiorType}
+            onChange={handleChange}
+          />
           <textarea
-            name="features"
-            placeholder="Features (comma-separated)"
-            value={newCar.features}
+            name="description"
+            placeholder="Description"
+            value={newCar.description}
             onChange={handleChange}
           />
           <input

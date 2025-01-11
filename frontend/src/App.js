@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { scroller } from "react-scroll"; // Import scroller for smooth scrolling
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/Hero";
 import Section1 from "./components/Section1";
