@@ -1,46 +1,65 @@
-import React, { useState } from "react";
-import { Link as RouterLink, useNavigate } from "react-router-dom"; // Import RouterLink for navigation
+import React, { useState, useEffect } from "react";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import { FaSearch, FaBars, FaTimes } from "react-icons/fa"; // Import icons for the toggle button
-import logo from "../assets/logo.png";
+import { FaBars, FaTimes, FaUserShield } from "react-icons/fa";
+import logo from "../assets/logo3.png";
 
 const Navbar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State to toggle mobile menu
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [navbarScrolled, setNavbarScrolled] = useState(false);
   const navigate = useNavigate();
 
-  const handleSearchClick = () => {
-    navigate("/"); // Navigate to the home page
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setNavbarScrolled(true); // Apply the black background
+      } else {
+        setNavbarScrolled(false); // Remove the black background
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleContactUsClick = () => {
-    navigate("/", { state: { scrollTo: "section4" } }); // Navigate to home and scroll to Section4
+    navigate("/", { state: { scrollTo: "section4" } });
   };
 
-  // Function to toggle mobile menu
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // Function to handle menu item click
   const handleMenuItemClick = () => {
-    setIsMobileMenuOpen(false); // Close the mobile menu when a menu item is clicked
+    setIsMobileMenuOpen(false);
   };
 
   return (
-    <nav className="navbar">
-      {/* Logo Section - Navigate to Home on Click */}
-      <div className="navbar-logo">
+    <nav className={`navbar ${navbarScrolled ? "scrolled-navbar" : ""}`}>
+      {/* Toggle Button Visible on Both Desktop and Mobile */}
+      <button className="navbar-toggle-btn" onClick={toggleMobileMenu}>
+        {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+      </button>
+
+      {/* Logo at Center */}
+      <div className="navbar-logo center-logo">
         <RouterLink to="/" onClick={handleMenuItemClick}>
           <img src={logo} alt="USA Auto Zone" className="logo" />
         </RouterLink>
       </div>
 
-      {/* Toggle Button for Mobile View */}
-      <button className="navbar-toggle-btn" onClick={toggleMobileMenu}>
-        {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-      </button>
+      {/* Admin Link on Right */}
+      <div className="admin-link">
+        <RouterLink to="/admin">
+          <FaUserShield className="admin-icon" />
+        </RouterLink>
+      </div>
 
-      {/* Navigation Links */}
+      {/* Navigation Links Slide-in Menu Fixed on Left */}
       <ul className={`navbar-links ${isMobileMenuOpen ? "mobile-open" : ""}`}>
         <li>
           <RouterLink to="/" onClick={handleMenuItemClick}>
@@ -53,28 +72,16 @@ const Navbar = () => {
           </RouterLink>
         </li>
         <li>
-          {/* Link to Car Details */}
           <RouterLink to="/cars/1" onClick={handleMenuItemClick}>
             Car Details
           </RouterLink>
         </li>
         <li>
-          <RouterLink to="/admin" onClick={handleMenuItemClick}>
-            Admin
-          </RouterLink>
-        </li>
-        <li>
-          {/* Trigger scroll to Section4 */}
           <button className="contact-us-btn" onClick={handleContactUsClick}>
             Contact Us
           </button>
         </li>
       </ul>
-
-      {/* Search Button */}
-      <button className="navbar-search-btn" onClick={handleSearchClick}>
-        <FaSearch className="search-icon" /> Search
-      </button>
     </nav>
   );
 };
