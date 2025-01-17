@@ -1,143 +1,75 @@
-/* Hero Section Styles */
+/* Hero Section Styling */
 .hero-section {
-  background-image: url("../assets/bg5.png");
+  background-image: url("../assets/bg11.png");
   background-size: cover;
-  height: 100vh;
+  height: 95vh;
   background-position: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   font-family: 'Montserrat', sans-serif;
   padding-top: 50px;
 }
 
-/* Centered Title */
-.centered-text {
+.hero-content {
+  text-align: left; /* Left-align the text */
+}
+
+.hero-title {
+  font-size: 66px;
+  font-weight: 400;
   color: #ffffff;
-  font-size: 50px;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 50px;
-  margin-top: 100px;
+  margin-bottom: 15px;
+  margin-top: 190px;
+  margin-left: 130px;
+}
+.hero-title-1 {
+  font-size: 66px;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  margin-left: 130px;
 }
 
-/* Contact Information Section */
-.contact-info {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  width: 80%;
-}
-
-.contact-column {
-  background-color: rgba(255, 255, 255, 1);
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  width: 700px;
-  display: flex;
+.hero-button {
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  align-self: center;
-}
-
-.contact-column-1 {
-  background-color: rgba(255, 255, 255, 1);
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  width: 300px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  align-self: center;
-}
-
-.contact-column-1 h3 {
-  font-size: 20px;
-  margin-top: 15px;
-  color: #000000;
-}
-
-.contact-column-1 p {
-  font-size: 15px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 130px;
   margin-top: 10px;
-  color: #000000;
 }
 
-.contact-column h3 {
+.hero-button:hover {
+  background-color: #525252;
+}
+
+.hero-button-icon {
+  margin-right: 8px;
   font-size: 20px;
-  margin-top: 15px;
-  color: #000000;
 }
 
-.contact-column p {
-  font-size: 15px;
-  margin-top: 10px;
-  color: #000000;
-}
-
-/* Icons Styling */
-.icon {
-  font-size: 30px;
-  color: #ff0000;
-  margin-bottom: 10px;
-  margin-right: 5px;
-  margin-top: 5px;
-  align-items: center;
-}
-
-/* Social Icons */
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.social-icons a {
-  color: #333;
-  font-size: 28px;
-  transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: #ff0b0b;
-}
-
-/* Mobile View Styling */
+/* Responsiveness */
 @media screen and (max-width: 768px) {
   .hero-section {
-    height: auto;
-    padding: 20px;
-    margin-top: 80px;
-    padding-bottom: 100px;
+    padding: 40px 20px;
   }
 
-  .centered-text {
-    font-size: 30px;
-    margin-bottom: 20px;
-    margin-top: 50px;
+  .hero-title {
+    font-size: 28px;
   }
 
-  .contact-info {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
+  .hero-description {
+    font-size: 16px;
   }
 
-  .contact-column,
-  .contact-column-1 {
-    width: 90%;
-    max-width: 500px;
-  }
-
-  .icon {
-    font-size: 24px;
-  }
-
-  .social-icons a {
-    font-size: 24px;
+  .hero-button {
+    font-size: 16px;
   }
 }

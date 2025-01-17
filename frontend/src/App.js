@@ -5,10 +5,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/Hero";
+import Section0 from "./components/Section0";
 import Section1 from "./components/Section1";
 import Section2 from "./components/Section2";
 import Section3 from "./components/Section3";
 import Section4 from "./components/Section4";
+import Section5 from "./components/Section5";
 import Cars from "./components/cars";
 import CarDetails from "./components/cardetails";
 import AdminPage from "./components/Admin";
@@ -53,9 +55,11 @@ function App() {
             element={
               <>
                 <HeroSection />
+                <Section0 />
                 <Section1 />
                 <Section2 />
                 <Section3 />
+                <Section5 />
                 <Section4 />
               </>
             }

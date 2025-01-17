@@ -1,0 +1,16 @@
+.section5-container {
+    padding: 50px;
+    text-align: center;
+  }
+  
+  #google-map {
+    width: 100%;
+    height: 500px;
+    margin-top: 20px;
+  }
+  
+  h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  

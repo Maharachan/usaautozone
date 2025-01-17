@@ -28,12 +28,12 @@
 
 /* Left (Red) Card */
 .left-card {
-  background-color: #ff0000;
+  background-color: #000000;
 }
 
 /* Right (Dark) Card */
 .right-card {
-  background-color: #191920;
+  background-color: #585858;
 }
 
 /* Title */
@@ -73,7 +73,7 @@
 
 /* Phone Icon */
 .phone-icon {
-  color: #ff1500; /* Light red icon color */
+  color: #000000; /* Light red icon color */
   font-size: 2rem; /* Larger icon size */
 }
 
