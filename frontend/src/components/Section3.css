@@ -7,6 +7,9 @@
   padding: 50px 20px;
   font-family: 'Montserrat', sans-serif;
   flex-wrap: nowrap; /* Prevent wrapping of cards */
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-top: 50px;
 }
 
 /* Card Styles */
@@ -20,7 +23,7 @@
   width: 100%;
   max-width: 600px; /* Increase maximum width for bigger cards */
   height: 300px; /* Set fixed height for cards */
-  color: #ffffff; /* Default text color for cards */
+  color: #000000; /* Default text color for cards */
   text-align: center;
   margin-top: 0; /* Remove top margin for proper alignment */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
@@ -28,7 +31,7 @@
 
 /* Left (Red) Card */
 .left-card {
-  background-color: #000000;
+  background-color: #ffffff;
 }
 
 /* Right (Dark) Card */
@@ -46,8 +49,8 @@
 
 /* Button */
 .section3-button {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #000000;
+  color: #ffffff;
   font-size: 1.2rem; /* Increase button font size */
   font-weight: 600;
   border: none;

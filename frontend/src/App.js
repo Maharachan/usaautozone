@@ -13,6 +13,8 @@ import Section4 from "./components/Section4";
 import Section5 from "./components/Section5";
 import Cars from "./components/cars";
 import CarDetails from "./components/cardetails";
+import CarDetails1 from "./components/cardetails1";
+import CarDetails2 from "./components/cardetails2";
 import AdminPage from "./components/Admin";
 import Login from "./components/Login";
 import Footer from "./components/Footer";
@@ -65,7 +67,14 @@ function App() {
             }
           />
           <Route path="/Cars" element={<Cars />} />
-          <Route path="/Cars/:id" element={<CarDetails />} /> {/* Dynamic route for car details */}
+          <Route path="/Cars/:id" 
+          element={
+            <>
+            <CarDetails />
+            <CarDetails1 />
+            <CarDetails2 />
+            </>
+          } /> {/* Dynamic route for car details */}
 
           {/* Protected route for AdminPage */}
           <Route
