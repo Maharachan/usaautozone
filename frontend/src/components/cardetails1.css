@@ -1,0 +1,59 @@
+/* Container Styling */
+.car-details1-container {
+    width: 90%;
+    margin: 10px auto;
+    padding: 20px;
+  }
+  
+  /* Row Styling */
+  .row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  /* Column Styling */
+  .column {
+    flex: 1;
+    padding: 10px 20px;
+    transition: transform 0.3s ease;
+    text-align: center;
+  }
+  
+  /* Hover Effect */
+  .column:hover {
+    transform: translateY(-10px);
+  }
+  
+  /* Heading Styling */
+  .column h3 {
+    font-size: 35Px;
+    color: #ffffff;
+    margin-bottom: 15px;
+  }
+  
+  /* Paragraph Styling */
+  .column p {
+    font-size: 14px;
+    color: #ffffff;
+    line-height: 1.5;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .row {
+      flex-wrap: wrap;
+    }
+  
+    .column {
+      flex: 0 0 48%;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .column {
+      flex: 0 0 100%;
+    }
+  }
+  

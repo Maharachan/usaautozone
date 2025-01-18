@@ -2,7 +2,7 @@
 .section2 {
   text-align: center;
   padding: 50px 20px;
-  background-color: #ffffff; /* White background */
+  background-color: #000000; /* White background */
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -10,7 +10,7 @@
 .section-title {
   font-size: 2.5rem;
   font-weight: bolder;
-  color: #191919; /* Dark text color */
+  color: #ffffff; /* Dark text color */
   margin-bottom: 30px;
   margin-top: 50px;
 }
@@ -30,7 +30,7 @@
   width: 300px; /* Card width */
   padding: 20px;
   border-radius: 10px;
-  background-color: #f9f9f9; /* Light background for the card */
+  background-color: #ffffff; /* Light background for the card */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   transition: transform 0.3s ease; /* Animation on hover */
 }

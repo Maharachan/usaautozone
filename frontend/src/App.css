@@ -1,7 +1,20 @@
+/* Global Background for the Entire Website */
+body, html, #root, .App {
+  background-color: #000000; /* Black background */
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  color: white; /* Ensure text is visible on black background */
+}
+
+/* Centered App Content */
 .App {
   text-align: center;
 }
 
+/* App Logo Animation */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -13,8 +26,9 @@
   }
 }
 
+/* Header Styling */
 .App-header {
-  background-color: #282c34;
+  background-color: transparent; /* Make header blend with black background */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,10 +38,12 @@
   color: white;
 }
 
+/* Link Styling */
 .App-link {
   color: #61dafb;
 }
 
+/* Logo Spin Animation */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
