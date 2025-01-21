@@ -3,22 +3,22 @@
 .section0 {
     background-color: #000000; /* Light gray background for contrast */
     text-align: center;
-    margin-bottom: 50px;
+    margin-top: 100px;
+    margin-bottom: 70px;
 
   }
-  
   .section0-heading {
-    margin-top: 60px;
-    font-size: 25px;
-    font-weight: 400;
+    font-size: 30px;
+    font-weight: 800;
     color: #ffffff; /* Black text color */
     font-family: 'Montserrat', sans-serif;
-    text-transform:def;
-    letter-spacing: 1.5px;
-    margin-bottom: 20px;
+    text-transform:uppercase;
+    padding: 0;
   }
-  .heading-span{
-    font-weight: bold;
-    font-size: 27px;
-    text-transform: uppercase;
+  .section0-divider {
+    width: 100px; /* Width of the divider */
+    height: 4px; /* Thickness of the divider */
+    background-color: #ffffff; /* Color of the divider */
+    margin: 0 auto; /* Center the divider */
+    border-radius: 2px; /* Optional: Rounded edges */
   }

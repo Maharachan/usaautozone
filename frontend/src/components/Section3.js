@@ -1,29 +1,32 @@
 import React from "react";
-import { FaPhoneAlt, FaSearch } from "react-icons/fa"; // Import phone and search icons
+import { FaPhoneAlt, FaEnvelope } from "react-icons/fa"; // Import icons
 import "./Section3.css";
 
 const Section3 = () => {
   return (
     <div className="section3">
-      {/* Left Red Section */}
-      <div className="section3-card left-card">
-        <h2 className="section3-title">
-          Find Best Cars within your budget in wide range.
-        </h2>
-        <button className="section3-button">
-          <FaSearch className="search-icon" /> {/* Add the search icon */}
-          Search
-        </button>
-      </div>
-
-      {/* Right Dark Section */}
-      <div className="section3-card right-card">
-        <h2 className="section3-title">Needs Consultation?</h2>
+      {/* Centered Contact Card */}
+      <div className="section3-card">
+        <h2 className="section3-title">Contact Us</h2>
+        <div className="section0-divider1"></div>
         <div className="contact-info">
-          <FaPhoneAlt className="phone-icon" />
-          <span className="phone-number">+1 903 978 0137</span>
+          {/* Phone Section */}
+          <div className="contact-item">
+            <FaPhoneAlt className="icon large-icon" />
+            <div>
+              <span className="contact-label">Call Us</span>
+              <span className="contact-text">+1 903 978 0137</span>
+            </div>
+          </div>
+          {/* Mail Section */}
+          <div className="contact-item">
+            <FaEnvelope className="icon large-icon" />
+            <div>
+              <span className="contact-label">Email Us</span>
+              <span className="contact-text">info@carsales.com</span>
+            </div>
+          </div>
         </div>
-        <button className="section3-button">Call us Now!</button>
       </div>
     </div>
   );

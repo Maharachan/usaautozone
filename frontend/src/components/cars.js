@@ -4,6 +4,9 @@ import "./cars.css";
 import Navbar from "./Navbar";
 import SearchContainer from "./SearchContainer";
 
+// Importing icons
+import { FaTachometerAlt, FaDollarSign, FaCogs, FaCarSide } from "react-icons/fa";
+
 // Importing local images
 import car1Image from "../assets/6.png";
 import car2Image from "../assets/6.png";
@@ -19,6 +22,8 @@ function Cars() {
       originalPrice: 20000,
       discountedPrice: 18000,
       miles: 15000,
+      transmission: "Automatic",
+      trim: "XLE",
       image: car1Image,
       description: "A reliable sedan with great fuel economy.",
     },
@@ -29,6 +34,8 @@ function Cars() {
       originalPrice: 22000,
       discountedPrice: 20000,
       miles: 12000,
+      transmission: "Manual",
+      trim: "EX",
       image: car2Image,
       description: "Sporty sedan with a sleek design.",
     },
@@ -39,6 +46,8 @@ function Cars() {
       originalPrice: 50000,
       discountedPrice: 47000,
       miles: 8000,
+      transmission: "Automatic",
+      trim: "M Sport",
       image: car3Image,
       description: "Luxury SUV with high-end features.",
     },
@@ -49,6 +58,8 @@ function Cars() {
       originalPrice: 80000,
       discountedPrice: 75000,
       miles: 5000,
+      transmission: "Automatic",
+      trim: "Performance",
       image: car4Image,
       description: "Electric luxury car with cutting-edge technology.",
     },
@@ -69,14 +80,22 @@ function Cars() {
 
               {/* Car Details Block */}
               <div className="car-details-container">
-                <h3>
+                <h3 className="car-title">
                   {car.brand} {car.model}
                 </h3>
-                <p>
-                  <span className="discounted-price">${car.discountedPrice}</span>
-                  <span className="original-price">${car.originalPrice}</span>
+                <p className="price-details">
+                  <FaDollarSign className="icon" />
+                  <span className="discounted-price">{car.discountedPrice}</span>
+                  <span className="original-price">{car.originalPrice}</span>
                 </p>
-                <p><i className="fas fa-tachometer-alt"></i> {car.miles} miles</p>
+                <p className="additional-details">
+                  <FaTachometerAlt className="icon" />
+                  <span>{car.miles} miles</span>
+                  <FaCogs className="icon" />
+                  <span>{car.transmission}</span>
+                  <FaCarSide className="icon" />
+                  <span>{car.trim}</span>
+                </p>
 
                 {/* Link to CarDetails page with state */}
                 <Link

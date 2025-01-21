@@ -13,4 +13,12 @@
     font-size: 36px;
     margin-bottom: 20px;
   }
+  .section0-divider2 {
+    width: 100px; /* Width of the divider */
+    height: 4px; /* Thickness of the divider */
+    background-color: #ffffff; /* Color of the divider */
+    margin: 0 auto; /* Center the divider */
+    border-radius: 2px; /* Optional: Rounded edges */
+    margin-bottom: 70px;
+  }
   
