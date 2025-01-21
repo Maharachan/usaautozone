@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { FaBars, FaTimes, FaUserShield } from "react-icons/fa";
-import logo from "../assets/logo3.png";
+import logo from "../assets/Logo5.png";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -11,73 +11,67 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setNavbarScrolled(true); // Apply the black background
-      } else {
-        setNavbarScrolled(false); // Remove the black background
-      }
+      setNavbarScrolled(window.scrollY > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    // Cleanup the event listener
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  const handleContactUsClick = () => {
-    navigate("/", { state: { scrollTo: "section4" } });
-  };
-
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const handleMenuItemClick = () => {
-    setIsMobileMenuOpen(false);
+  const handleContactUsClick = () => {
+    navigate("/", { state: { scrollTo: "section4" } });
   };
 
   return (
     <nav className={`navbar ${navbarScrolled ? "scrolled-navbar" : ""}`}>
-      {/* Toggle Button Visible on Both Desktop and Mobile */}
+      {/* Mobile Toggle Button */}
       <button className="navbar-toggle-btn" onClick={toggleMobileMenu}>
         {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
       </button>
 
-      {/* Logo at Center */}
+      {/* Logo */}
       <div className="navbar-logo center-logo">
-        <RouterLink to="/" onClick={handleMenuItemClick}>
+        <RouterLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
           <img src={logo} alt="USA Auto Zone" className="logo" />
         </RouterLink>
       </div>
 
-      {/* Admin Link on Right */}
+      {/* Admin Link */}
       <div className="admin-link">
         <RouterLink to="/admin">
           <FaUserShield className="admin-icon" />
         </RouterLink>
       </div>
 
-      {/* Navigation Links Slide-in Menu Fixed on Left */}
-      <ul className={`navbar-links ${isMobileMenuOpen ? "mobile-open" : ""}`}>
+      {/* Navigation Links */}
+      <ul
+        className={`navbar-links ${
+          isMobileMenuOpen ? "mobile-open" : "mobile-closed"
+        }`}
+      >
         <li>
-          <RouterLink to="/" onClick={handleMenuItemClick}>
+          <RouterLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
             Home
           </RouterLink>
         </li>
         <li>
-          <RouterLink to="/cars" onClick={handleMenuItemClick}>
+          <RouterLink to="/cars" onClick={() => setIsMobileMenuOpen(false)}>
             Cars
           </RouterLink>
         </li>
         <li>
-          <RouterLink to="/cars/1" onClick={handleMenuItemClick}>
+          <RouterLink to="/cars/1" onClick={() => setIsMobileMenuOpen(false)}>
             Car Details
           </RouterLink>
         </li>
         <li>
-          <button className="contact-us-btn" onClick={handleContactUsClick}>
+          <button className="contact-us-btn1" onClick={handleContactUsClick}>
             Contact Us
           </button>
         </li>

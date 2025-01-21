@@ -36,12 +36,13 @@ const ImageCarousel = () => {
         </Slider>
       </div>
 
-      {/* Centered Heading and Paragraph */}
+      {/* Centered Heading and Price */}
       <div className="text-content">
-        <h2>Tayota Hilux</h2>
-        <p>
-          1000$
-        </p>
+        <h2>Toyota Hilux</h2>
+        <div className="price-section">
+          <p className="discounted-price">$1000</p>
+          <p className="original-price">$1200</p>
+        </div>
       </div>
     </div>
   );

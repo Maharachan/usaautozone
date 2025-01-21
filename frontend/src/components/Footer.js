@@ -1,7 +1,7 @@
-// Footer.js
 import React from "react";
+import { FaPhoneAlt, FaEnvelope } from "react-icons/fa"; // Import icons
 import "./Footer.css";
-import logo from "../assets/logo.png";
+import logo from "../assets/logos.png";
 
 const Footer = () => {
   return (
@@ -24,15 +24,21 @@ const Footer = () => {
         </div>
         <div className="footer-description">
           <p>
-            USA AUTO PLAZA, established in 2002, is one of the most reputable automobile sales
-            and purchase companies in Pakistan. For over 18 years, we have been
-            supplying our clients with quality second-hand Japanese and local
-            vehicles at competitive prices.
+            USA AUTO PLAZA, established in 2002, is one of the most reputable
+            automobile sales and purchase companies in Pakistan. For over 18
+            years, we have been supplying our clients with quality second-hand
+            Japanese and local vehicles at competitive prices.
           </p>
         </div>
         <div className="footer-contact">
-          <p>support@usaautoplaza.com</p>
-          <p>+1 903 978 0137</p>
+          <div className="contact-item">
+            <FaEnvelope className="icon1" />
+            <span>support@usaautoplaza.com</span>
+          </div>
+          <div className="contact-item">
+            <FaPhoneAlt className="icon1" />
+            <span>+1 903 978 0137</span>
+          </div>
         </div>
       </div>
     </footer>

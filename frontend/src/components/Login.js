@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // To navigate after successful login
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 function Login({ onLoginSuccess }) {
@@ -9,7 +9,7 @@ function Login({ onLoginSuccess }) {
   });
 
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false); // To handle loading state
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -18,43 +18,42 @@ function Login({ onLoginSuccess }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError(""); // Clear previous error message
-    setLoading(true); // Start loading state
+    setError("");
+    setLoading(true);
 
-    // Static username and password
     const staticUsername = "admin";
     const staticPassword = "123";
 
     try {
-      // Check if entered credentials match the static values
       if (
         credentials.username === staticUsername &&
         credentials.password === staticPassword
       ) {
-        // Simulate a successful login
-        localStorage.setItem("token", "static-token"); // Save a dummy token to localStorage
-        onLoginSuccess(); // Trigger parent callback
-        navigate("/admin"); // Redirect to admin page
+        localStorage.setItem("token", "static-token");
+        onLoginSuccess();
+        navigate("/admin");
       } else {
         throw new Error("Invalid username or password.");
       }
     } catch (err) {
-      setError(err.message); // Display error message if login fails
+      setError(err.message);
     } finally {
-      setLoading(false); // Reset loading state
+      setLoading(false);
     }
   };
 
   return (
-    <div className="login-page">
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="login-container">
+      <h1 className="login-heading">Login</h1>
+      <div className="login-divider"></div>
+      <form className="login-form" onSubmit={handleSubmit}>
         <input
           type="text"
           name="username"
           placeholder="Username"
           value={credentials.username}
           onChange={handleChange}
+          className="login-input"
         />
         <input
           type="password"
@@ -62,9 +61,10 @@ function Login({ onLoginSuccess }) {
           placeholder="Password"
           value={credentials.password}
           onChange={handleChange}
+          className="login-input"
         />
-        {error && <p className="error">{error}</p>} {/* Display error if any */}
-        <button type="submit" disabled={loading}>
+        {error && <p className="login-error">{error}</p>}
+        <button type="submit" className="login-button1" disabled={loading}>
           {loading ? "Logging in..." : "Login"}
         </button>
       </form>

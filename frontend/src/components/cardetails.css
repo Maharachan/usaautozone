@@ -41,31 +41,32 @@
   font-size: 24px;
 }
 
-/* Centered Heading and Paragraph */
-.text-content {
-  text-align: center;
-  margin-top: 50px;
-  padding: 0 20px;
+
+/* Price Section */
+.price-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Space between discounted and original prices */
+  margin-top: 20px;
 }
 
-.text-content h2 {
-  font-size: 36px;
+.discounted-price {
+  font-size: 22px;
   font-weight: bold;
   color: #ffffff;
-  text-transform: uppercase;
+  background-color: #4599FE;
+  padding: 12px 17px;
+  border-radius: 5px;
 }
 
-.text-content p {
-  font-size: 18px;
-  color: #ffffff;
-  line-height: 1.6;
-  max-width: 100px;
-  margin: 20px auto;
-  background-color: rgb(95, 95, 95);
-  padding: 10px;
-  border-radius: 5px;
-  
+.original-price {
+  font-size: 20px;
+  text-decoration: line-through;
+  color: #ff0000; /* Red color for the original price */
+  font-weight: bold;
 }
+
 
 /* Responsive */
 @media (max-width: 768px) {
