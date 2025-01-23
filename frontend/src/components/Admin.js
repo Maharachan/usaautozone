@@ -1,22 +1,29 @@
 import React, { useState } from "react";
-import './Admin1.css';
+import "./Admin1.css";
 
 function AdminPage() {
   const [newCar, setNewCar] = useState({
     name: "",
+    condition: "",
     year: "",
-    miles: "",
-    transmission: "",
-    fuel: "",
-    features: "",
     price: "",
     owners: "",
+    miles: "",
+    engineCC: "",
+    color: "",
+    bodyStyle: "",
     exteriorStyle: "",
-    interiorType: "",
-    description: ""
+    interiorStyle: "",
+    driveType: "",
+    transmission: "",
+    fuel: "",
+    trim: "",
+    description: "",
+    features: [],
+    safetyFeatures: [],
   });
-  
-  const [images, setImages] = useState([]); // Handle multiple images
+
+  const [images, setImages] = useState([]); // Correctly using the state
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
@@ -24,48 +31,73 @@ function AdminPage() {
     setNewCar({ ...newCar, [e.target.name]: e.target.value });
   };
 
+  const handleFeatureChange = (e) => {
+    const { name, value, checked } = e.target;
+    setNewCar((prev) => {
+      const updatedFeatures = checked
+        ? [...prev[name], value]
+        : prev[name].filter((item) => item !== value);
+      return { ...prev, [name]: updatedFeatures };
+    });
+  };
+
   const handleFileChange = (e) => {
-    setImages([...e.target.files]); // Store multiple selected files
+    const fileList = Array.from(e.target.files); // Convert FileList to an array
+    setImages(fileList); // Update the state with the list of images
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
-    setSuccess(true); // Mark as successful submission
+    setSuccess(true);
 
-    // Reset form state after successful submission
+    // Resetting state after submission
     setNewCar({
       name: "",
+      condition: "",
       year: "",
-      miles: "",
-      transmission: "",
-      fuel: "",
-      features: "",
       price: "",
       owners: "",
+      miles: "",
+      engineCC: "",
+      color: "",
+      bodyStyle: "",
       exteriorStyle: "",
-      interiorType: "",
-      description: ""
+      interiorStyle: "",
+      driveType: "",
+      transmission: "",
+      fuel: "",
+      trim: "",
+      description: "",
+      features: [],
+      safetyFeatures: [],
     });
-    setImages([]); // Clear the image input
+    setImages([]);
   };
 
   const handleAddAnotherCar = () => {
-    setSuccess(false); // Reset success state
+    setSuccess(false);
     setNewCar({
       name: "",
+      condition: "",
       year: "",
-      miles: "",
-      transmission: "",
-      fuel: "",
-      features: "",
       price: "",
       owners: "",
+      miles: "",
+      engineCC: "",
+      color: "",
+      bodyStyle: "",
       exteriorStyle: "",
-      interiorType: "",
-      description: ""
+      interiorStyle: "",
+      driveType: "",
+      transmission: "",
+      fuel: "",
+      trim: "",
+      description: "",
+      features: [],
+      safetyFeatures: [],
     });
-    setImages([]); // Clear the image input
+    setImages([]);
   };
 
   return (
@@ -78,82 +110,207 @@ function AdminPage() {
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Car Name"
-            value={newCar.name}
-            onChange={handleChange}
-          />
-          <input
-            type="number"
-            name="year"
-            placeholder="Year"
-            value={newCar.year}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="miles"
-            placeholder="Miles"
-            value={newCar.miles}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="transmission"
-            placeholder="Transmission"
-            value={newCar.transmission}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="fuel"
-            placeholder="Fuel Type"
-            value={newCar.fuel}
-            onChange={handleChange}
-          />
-          <input
-            type="number"
-            name="owners"
-            placeholder="Owners"
-            value={newCar.owners}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="exteriorStyle"
-            placeholder="Exterior Style"
-            value={newCar.exteriorStyle}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="interiorType"
-            placeholder="Interior Type"
-            value={newCar.interiorType}
-            onChange={handleChange}
-          />
-          <textarea
-            name="description"
-            placeholder="Description"
-            value={newCar.description}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="price"
-            placeholder="Price"
-            value={newCar.price}
-            onChange={handleChange}
-          />
-          <input
-            type="file"
-            name="images"
-            accept="image/*"
-            multiple
-            onChange={handleFileChange}
-          />
+          <div className="form-row">
+            <input
+              type="text"
+              name="name"
+              placeholder="Name & Model"
+              value={newCar.name}
+              onChange={handleChange}
+            />
+            <select
+              name="condition"
+              value={newCar.condition}
+              onChange={handleChange}
+            >
+              <option value="">Condition</option>
+              <option value="New">New</option>
+              <option value="Used">Used</option>
+            </select>
+            <input
+              type="number"
+              name="year"
+              placeholder="Year"
+              value={newCar.year}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="form-row">
+            <input
+              type="text"
+              name="price"
+              placeholder="Price"
+              value={newCar.price}
+              onChange={handleChange}
+            />
+            <input
+              type="number"
+              name="owners"
+              placeholder="No of Owners"
+              value={newCar.owners}
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              name="miles"
+              placeholder="Miles"
+              value={newCar.miles}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="form-row">
+            <input
+              type="number"
+              name="engineCC"
+              placeholder="Engine CC"
+              value={newCar.engineCC}
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              name="color"
+              placeholder="Color"
+              value={newCar.color}
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              name="bodyStyle"
+              placeholder="Body Style"
+              value={newCar.bodyStyle}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="form-row">
+            <input
+              type="text"
+              name="exteriorStyle"
+              placeholder="Exterior Style"
+              value={newCar.exteriorStyle}
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              name="interiorStyle"
+              placeholder="Interior Style"
+              value={newCar.interiorStyle}
+              onChange={handleChange}
+            />
+            <select
+              name="driveType"
+              value={newCar.driveType}
+              onChange={handleChange}
+            >
+              <option value="">Drive Type</option>
+              <option value="FWD">FWD</option>
+              <option value="RWD">RWD</option>
+              <option value="AWD">AWD</option>
+            </select>
+          </div>
+
+          <div className="form-row">
+            <select
+              name="transmission"
+              value={newCar.transmission}
+              onChange={handleChange}
+            >
+              <option value="">Transmission</option>
+              <option value="Automatic">Automatic</option>
+              <option value="Manual">Manual</option>
+              <option value="Semi Automatic">Semi Automatic</option>
+            </select>
+            <select
+              name="fuel"
+              value={newCar.fuel}
+              onChange={handleChange}
+            >
+              <option value="">Fuel</option>
+              <option value="Electric">Electric</option>
+              <option value="Diesel">Diesel</option>
+              <option value="Petrol">Petrol</option>
+            </select>
+            <select
+              name="trim"
+              value={newCar.trim}
+              onChange={handleChange}
+            >
+              <option value="">Trim</option>
+              <option value="XL">XL</option>
+              <option value="Sedan">Sedan</option>
+              <option value="L">L</option>
+            </select>
+          </div>
+
+          <div className="form-row full-width">
+            <textarea
+              name="description"
+              placeholder="Description"
+              value={newCar.description}
+              onChange={handleChange}
+            />
+          </div>
+
+          
+
+          <div className="form-row full-width">
+            <label>Features:</label>
+            <div className="checkbox-group">
+              {["360-degree camera", "Blind spot alert", "Bluetooth", "Cooled seats", "Heated seats", "Keyless start", "Leather seats", "LED headlights", "Memory seat", "Navigation System", "Reversing camera", "Side airbags", "Sound system", "Traction Control", "USB port"].map((feature) => (
+                <label key={feature}>
+                  <input
+                    type="checkbox"
+                    name="features"
+                    value={feature}
+                    checked={newCar.features.includes(feature)}
+                    onChange={handleFeatureChange}
+                  />
+                  {feature}
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div className="form-row full-width">
+            <label>Safety Features:</label>
+            <div className="checkbox-group">
+              {["Active head restraints", "Adaptive headlights", "Backup camera", "Blind-spot warning", "Brake assist", "Forward-collision warning", "Lane keeping assist", "Parking assist systems", "Pedestrian detection", "Sideview camera"].map((safetyFeature) => (
+                <label key={safetyFeature}>
+                  <input
+                    type="checkbox"
+                    name="safetyFeatures"
+                    value={safetyFeature}
+                    checked={newCar.safetyFeatures.includes(safetyFeature)}
+                    onChange={handleFeatureChange}
+                  />
+                  {safetyFeature}
+                </label>
+              ))}
+            </div>
+          </div>
+          
+          <div className="form-row full-width">
+            <input
+              type="file"
+              name="images"
+              accept="image/*"
+              multiple
+              onChange={handleFileChange}
+            />
+            {images.length > 0 && (
+              <div className="image-preview">
+                <h4>Selected Images:</h4>
+                <ul>
+                  {images.map((image, index) => (
+                    <li key={index}>{image.name}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
           {error && <p className="error">{error}</p>}
           <button type="submit">Add Car</button>
         </form>

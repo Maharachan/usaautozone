@@ -24,10 +24,7 @@ const Footer = () => {
         </div>
         <div className="footer-description">
           <p>
-            USA AUTO PLAZA, established in 2002, is one of the most reputable
-            automobile sales and purchase companies in Pakistan. For over 18
-            years, we have been supplying our clients with quality second-hand
-            Japanese and local vehicles at competitive prices.
+          <b>USA AUTO ZONE</b> is your go-to place for quality vehicles. We offer a great selection of well-maintained cars and a hassle-free buying experience, supported by a friendly and knowledgeable team. Drive home with confidence today!"
           </p>
         </div>
         <div className="footer-contact">

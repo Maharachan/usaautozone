@@ -28,7 +28,7 @@
 .contact-info {
   display: flex;
   justify-content: space-between;
-  gap: 250px; /* Add spacing between items */
+  gap: 150px; /* Add spacing between items */
   width: 100%; /* Ensure items span full width */
 }
 
@@ -45,14 +45,15 @@
 }
 
 .contact-label {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: bold;
   color: #ffffff;
-  margin-right: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .contact-text {
-  font-size: 16px;
+  font-size: 18px;
   color: #ffffff;
 }
 .section0-divider1 {
