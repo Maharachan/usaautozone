@@ -48,7 +48,7 @@ const carouselData = [
   },
 ];
 
-const ImageCarousel = () => {
+const ImageCarousel1 = () => {
   const settings = {
     dots: true,
     infinite: true,
@@ -56,7 +56,7 @@ const ImageCarousel = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 1000,
     pauseOnHover: true,
     arrows: false,
   };
@@ -90,4 +90,4 @@ const ImageCarousel = () => {
   );
 };
 
-export default ImageCarousel;
+export default ImageCarousel1;

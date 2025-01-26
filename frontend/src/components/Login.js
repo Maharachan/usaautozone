@@ -16,24 +16,28 @@ function Login({ onLoginSuccess }) {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setLoading(true);
 
-    const staticUsername = "admin";
-    const staticPassword = "123";
-
     try {
-      if (
-        credentials.username === staticUsername &&
-        credentials.password === staticPassword
-      ) {
-        localStorage.setItem("token", "static-token");
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credentials),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem("token", data.token);
         onLoginSuccess();
         navigate("/admin");
       } else {
-        throw new Error("Invalid username or password.");
+        throw new Error(data.message || "Login failed.");
       }
     } catch (err) {
       setError(err.message);
@@ -43,8 +47,8 @@ function Login({ onLoginSuccess }) {
   };
 
   return (
-    <div className="login-container">
-      <h1 className="login-heading">Login</h1>
+    <div className="login-container1">
+      <h1 className="login-heading1">Login</h1>
       <div className="login-divider"></div>
       <form className="login-form" onSubmit={handleSubmit}>
         <input

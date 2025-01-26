@@ -4,20 +4,20 @@ import "./cardetails1.css";
 const CarDetails1 = () => {
   const columnData = [
     {
-      heading: "V8",
-      text: "ENGINE",
+      heading: "3902",
+      text: "MILES",
     },
     {
-      heading: "3902CC",
-      text: "TOTAL DISPLACEMENT",
+      heading: "USED",
+      text: "CONDITION",
     },
     {
-      heading: "670CV",
-      text: "MAXIMUM POWER",
+      heading: "2020",
+      text: "YEAR",
     },
     {
-      heading: "1340KG",
-      text: "DRY WEIGHT",
+      heading: "1",
+      text: "NO OF OWNERS",
     },
   ];
 

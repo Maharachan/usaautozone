@@ -42,26 +42,53 @@ form {
   width: 100%;
   max-width: 250px;
 }
+.form-row label1 {
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
 textarea {
   height: 100px;
   resize: none;
 }
 
+/* Styling for Feature and Safety Feature Labels */
 .checkbox-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 10px; /* Space between labels */
+  margin-top: 10px;
   color: #000;
 }
 
 .checkbox-group label {
   display: flex;
   align-items: center;
-  gap: 5px;
+  padding: 8px 12px;
   font-size: 14px;
-  color: #000;
+  color: #000000;
+  background-color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
+.checkbox-group label:hover {
+  background-color: #4599fe;
+  transform: scale(1.05);
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 8px; /* Space between checkbox and label text */
+  accent-color: #4599fe; /* Checkbox highlight color */
+}
+
+.checkbox-group input[type="checkbox"]:focus + label {
+  outline: 2px solid #2085ff;
+  outline-offset: 2px;
+}
+
 
 .success-message {
   color: #28a745;
