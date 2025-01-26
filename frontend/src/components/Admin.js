@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./Admin1.css";
 
 function AdminPage() {
   const [newCar, setNewCar] = useState({
     name: "",
-    condition: "",
+    conditions: "",
     year: "",
     price: "",
     owners: "",
@@ -18,12 +19,12 @@ function AdminPage() {
     transmission: "",
     fuel: "",
     trim: "",
-    description: "",
+    descriptions: "",
     features: [],
     safetyFeatures: [],
   });
 
-  const [images, setImages] = useState([]); // Correctly using the state
+  const [images, setImages] = useState([]);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
@@ -42,19 +43,14 @@ function AdminPage() {
   };
 
   const handleFileChange = (e) => {
-    const fileList = Array.from(e.target.files); // Convert FileList to an array
-    setImages(fileList); // Update the state with the list of images
+    const fileList = Array.from(e.target.files);
+    setImages(fileList);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setError("");
-    setSuccess(true);
-
-    // Resetting state after submission
+  const resetForm = () => {
     setNewCar({
       name: "",
-      condition: "",
+      conditions: "",
       year: "",
       price: "",
       owners: "",
@@ -68,36 +64,51 @@ function AdminPage() {
       transmission: "",
       fuel: "",
       trim: "",
-      description: "",
+      descriptions: "",
       features: [],
       safetyFeatures: [],
     });
     setImages([]);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setSuccess(false); // Reset success message
+  
+    // Create a FormData object
+    const formData = new FormData();
+  
+    // Append car details to the FormData
+    formData.append("data", JSON.stringify(newCar));
+  
+    // Append images to the FormData
+    images.forEach((image) => {
+      formData.append("images", image);
+    });
+  
+    try {
+      const response = await axios.post("http://localhost:5000/api/cars", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+  
+      if (response.status === 200) {
+        setSuccess(true);
+        resetForm(); // Reset form after success
+      } else {
+        setError(response.data.message || "Failed to add car. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      setError(err.response?.data?.message || "Failed to add car. Please try again.");
+    }
   };
 
   const handleAddAnotherCar = () => {
     setSuccess(false);
-    setNewCar({
-      name: "",
-      condition: "",
-      year: "",
-      price: "",
-      owners: "",
-      miles: "",
-      engineCC: "",
-      color: "",
-      bodyStyle: "",
-      exteriorStyle: "",
-      interiorStyle: "",
-      driveType: "",
-      transmission: "",
-      fuel: "",
-      trim: "",
-      description: "",
-      features: [],
-      safetyFeatures: [],
-    });
-    setImages([]);
+    resetForm();
   };
 
   return (
@@ -119,8 +130,8 @@ function AdminPage() {
               onChange={handleChange}
             />
             <select
-              name="condition"
-              value={newCar.condition}
+              name="conditions"
+              value={newCar.conditions}
               onChange={handleChange}
             >
               <option value="">Condition</option>
@@ -246,14 +257,12 @@ function AdminPage() {
 
           <div className="form-row full-width">
             <textarea
-              name="description"
-              placeholder="Description"
-              value={newCar.description}
+              name="descriptions"
+              placeholder="Descriptions"
+              value={newCar.descriptions}
               onChange={handleChange}
             />
           </div>
-
-          
 
           <div className="form-row full-width">
             <label>Features:</label>
@@ -290,7 +299,7 @@ function AdminPage() {
               ))}
             </div>
           </div>
-          
+
           <div className="form-row full-width">
             <input
               type="file"

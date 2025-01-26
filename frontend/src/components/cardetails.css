@@ -40,6 +40,9 @@
   color: #fff;
   font-size: 24px;
 }
+.text-content{
+  text-transform: uppercase;
+}
 
 
 /* Price Section */

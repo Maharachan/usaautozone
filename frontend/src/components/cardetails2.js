@@ -4,24 +4,24 @@ import "./cardetails2.css";
 const CarDetails2 = () => {
   const columnData = [
     {
-      heading: "V12",
-      text: "ENGINE",
+      heading: "5000",
+      text: "ENGINE CC",
     },
     {
-      heading: "6496CC",
-      text: "TOTAL DISPLACEMENT",
+      heading: "SUV",
+      text: "BODY STYLE",
     },
     {
-      heading: "800CV",
-      text: "MAXIMUM POWER",
+      heading: "CONFORTABLE",
+      text: "INTERIOR STYLE",
     },
     {
-      heading: "1250KG",
-      text: "DRY WEIGHT",
+      heading: "HATCHBACKS",
+      text: "EXTERIOR STYLE",
     },
     {
-      heading: "2.8s",
-      text: "0-100 KM/H",
+      heading: "XL",
+      text: "TRIM",
     },
   ];
 
@@ -36,11 +36,6 @@ const CarDetails2 = () => {
         ))}
       </div>
 
-      {/* Buttons Section */}
-      <div className="button-container">
-        <button className="btn primary-btn">Learn More</button>
-        <button className="btn secondary-btn">Contact Us</button>
-      </div>
     </div>
   );
 };

@@ -13,6 +13,7 @@ import Cars from "./components/cars";
 import CarDetails from "./components/cardetails";
 import CarDetails1 from "./components/cardetails1";
 import CarDetails2 from "./components/cardetails2";
+import CarDetails3 from "./components/cardetails3";
 import AdminPage from "./components/Admin";
 import Login from "./components/Login";
 import Footer from "./components/Footer";
@@ -70,6 +71,7 @@ function App() {
             <CarDetails />
             <CarDetails1 />
             <CarDetails2 />
+            <CarDetails3 />
             </>
           } /> {/* Dynamic route for car details */}
 

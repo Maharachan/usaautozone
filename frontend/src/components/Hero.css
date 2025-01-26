@@ -1,5 +1,5 @@
 /* Hero Section Styling */
-.hero-section {
+.hero-section10 {
   background-image: url("../assets/bg11.png");
   background-size: cover;
   height: 95vh;
@@ -10,25 +10,34 @@
   padding-top: 50px;
 }
 
-.hero-content {
+.hero-content10 {
   text-align: left; /* Left-align the text */
+  align-items: left;
+  align-self: start;
 }
 
-.hero-title {
+.hero-title1 {
   font-size: 66px;
   font-weight: 400;
   color: #ffffff;
   margin-bottom: 15px;
-  margin-top: 190px;
+  margin-top: 170px;
   margin-left: 130px;
+  text-align: left; /* Left-align the text */
+  align-items: left;
+  align-self: start;
+  
 }
-.hero-title-1 {
+.hero-title2 {
   font-size: 66px;
   font-weight: 400;
   color: #ffffff;
   margin-bottom: 15px;
   margin-top: 20px;
   margin-left: 130px;
+  text-align: left; /* Left-align the text */
+  align-items: left;
+  align-self: start;
 }
 
 .hero-button {
@@ -43,7 +52,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-left: 130px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .hero-button:hover {
@@ -53,23 +62,4 @@
 .hero-button-icon {
   margin-right: 8px;
   font-size: 20px;
-}
-
-/* Responsiveness */
-@media screen and (max-width: 768px) {
-  .hero-section {
-    padding: 40px 20px;
-  }
-
-  .hero-title {
-    font-size: 28px;
-  }
-
-  .hero-description {
-    font-size: 16px;
-  }
-
-  .hero-button {
-    font-size: 16px;
-  }
 }
