@@ -1,0 +1,6 @@
+CREATE TABLE car_images (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  car_id INT,
+  image_path VARCHAR(255),
+  FOREIGN KEY (car_id) REFERENCES cars(id) ON DELETE CASCADE
+);

@@ -13,18 +13,21 @@
 
 h1 {
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
   color: #333;
   margin-bottom: 20px;
 }
 
 form {
   display: flex;
+  font-family: 'Montserrat', sans-serif;
   flex-direction: column;
   margin-top: 50px;
 }
 
 .form-row {
   display: flex;
+  font-family: 'Montserrat', sans-serif;
   flex-wrap: wrap;
   gap: 15px;
   margin-bottom: 20px;
@@ -36,6 +39,7 @@ form {
 .form-row textarea {
   flex: 1;
   padding: 10px;
+  font-family: 'Montserrat', sans-serif;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
@@ -44,6 +48,7 @@ form {
 }
 .form-row label1 {
   color: #000;
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -137,3 +142,9 @@ button:disabled {
   background: #ccc;
   cursor: not-allowed;
 }
+.image-preview h4{
+color: #000;
+}
+.image-preview ul{
+  color: #000;
+  }

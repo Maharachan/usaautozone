@@ -265,7 +265,7 @@ function AdminPage() {
           </div>
 
           <div className="form-row full-width">
-            <label>Features:</label>
+            <label1>Features:</label1>
             <div className="checkbox-group">
               {["360-degree camera", "Blind spot alert", "Bluetooth", "Cooled seats", "Heated seats", "Keyless start", "Leather seats", "LED headlights", "Memory seat", "Navigation System", "Reversing camera", "Side airbags", "Sound system", "Traction Control", "USB port"].map((feature) => (
                 <label key={feature}>
@@ -283,7 +283,7 @@ function AdminPage() {
           </div>
 
           <div className="form-row full-width">
-            <label>Safety Features:</label>
+            <label1>Safety Features:</label1>
             <div className="checkbox-group">
               {["Active head restraints", "Adaptive headlights", "Backup camera", "Blind-spot warning", "Brake assist", "Forward-collision warning", "Lane keeping assist", "Parking assist systems", "Pedestrian detection", "Sideview camera"].map((safetyFeature) => (
                 <label key={safetyFeature}>
