@@ -46,7 +46,7 @@ app.post("/api/login", async (req, res) => {
 app.post("/api/cars", upload.array("images", 10), async (req, res) => {
   try {
     // Parse the car data from the body
-    const newCar = JSON.parse(req.body.data); 
+    const newCar = JSON.parse(req.body.data);
     const images = req.files.map((file) => file.filename);
 
     // Check if required fields exist in the car data
@@ -88,10 +88,29 @@ app.post("/api/cars", upload.array("images", 10), async (req, res) => {
 
     return res.json({ success: true, message: "Car added successfully" });
   } catch (err) {
-    // Do not log errors in the terminal, just return a generic error message
     return res.status(500).json({ success: false, message: "Failed to add car. Please try again." });
   }
 });
+
+// Endpoint to fetch car data
+// Endpoint to fetch car data
+app.get("/api/cars", async (req, res) => {
+  try {
+    const [cars] = await db.query(
+      `SELECT cars.id, cars.transmission, cars.trim, cars.name, cars.price, cars.miles, 
+              GROUP_CONCAT(car_images.image_path) AS image_paths
+       FROM cars
+       LEFT JOIN car_images ON cars.id = car_images.car_id
+       GROUP BY cars.id, cars.name, cars.transmission, cars.trim, cars.price, cars.miles`
+    );
+
+    return res.json(cars);
+  } catch (err) {
+    console.error("Error fetching car data:", err);
+    return res.status(500).json({ success: false, message: "Failed to fetch car data." });
+  }
+});
+
 
 // Start the server
 const PORT = process.env.PORT || 5000;

@@ -11,6 +11,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-top: 150px;
   flex-wrap: nowrap; /* Prevent wrapping */
+  font-family: 'Montserrat', sans-serif;
 }
 
 .filter {
@@ -22,6 +23,7 @@
   border-radius: 5px;
   background-color: #fff;
   transition: border-color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .filter:focus {
@@ -39,6 +41,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .search-button:hover {
