@@ -57,6 +57,7 @@
   cursor: pointer;
   z-index: 1200;
   margin-left: 20px;
+  font-family: "Montserrat", sans-serif;
 }
 .navbar-toggle-btn:hover {
   background: none;
@@ -110,6 +111,7 @@
   text-decoration: none;
   font-size: 16px;
   font-weight: 600;
+  font-family: "Montserrat", sans-serif;
 }
 
 .contact-us-btn1 {

@@ -88,11 +88,15 @@ function AdminPage() {
     });
   
     try {
-      const response = await axios.post("http://localhost:5000/api/cars", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/cars`, // Use the dynamic API URL
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
   
       if (response.status === 200) {
         setSuccess(true);
@@ -105,6 +109,7 @@ function AdminPage() {
       setError(err.response?.data?.message || "Failed to add car. Please try again.");
     }
   };
+  
 
   const handleAddAnotherCar = () => {
     setSuccess(false);

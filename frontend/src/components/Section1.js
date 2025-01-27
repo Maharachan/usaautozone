@@ -1,87 +1,85 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import "./Section1.css";
-
-// Import images and icons
+import "./Section1.css"; // Ensure this file contains your carousel styling
 import { FaTag, FaRoad } from "react-icons/fa";
-import image1 from "../assets/6.png";
-import image2 from "../assets/7.png";
-import image3 from "../assets/8.png";
-import image4 from "../assets/9.png";
-
-const carouselData = [
-  {
-    image: image1,
-    heading: "Toyota Hilux",
-    originalPrice: "$50,000",
-    discountedPrice: "$45,000",
-    miles: "15,000 miles",
-    buttonText: "More Details",
-    buttonLink: "/cars",
-  },
-  {
-    image: image2,
-    heading: "Audi R8",
-    originalPrice: "$120,000",
-    discountedPrice: "$110,000",
-    miles: "8,000 miles",
-    buttonText: "More Details",
-    buttonLink: "/models",
-  },
-  {
-    image: image3,
-    heading: "BMW S-Class",
-    originalPrice: "$100,000",
-    discountedPrice: "$92,000",
-    miles: "20,000 miles",
-    buttonText: "More Details",
-    buttonLink: "/performance",
-  },
-  {
-    image: image4,
-    heading: "Mercedes G-Wagon",
-    originalPrice: "$150,000",
-    discountedPrice: "$140,000",
-    miles: "10,000 miles",
-    buttonText: "More Details",
-    buttonLink: "/innovation",
-  },
-];
 
 const ImageCarousel1 = () => {
-  const settings = {
+  const [cars, setCars] = useState([]); // State to store car data
+  const [loading, setLoading] = useState(true); // State to manage loading status
+  const [error, setError] = useState(null); // State to manage errors
+
+  // Get the API URL from the .env file
+  const apiUrl = process.env.REACT_APP_API_URL;
+
+  // Fetch car data from the backend
+  useEffect(() => {
+    const fetchCars = async () => {
+      try {
+        const response = await fetch(`${apiUrl}/api/cars`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch car data");
+        }
+        const data = await response.json();
+        setCars(data); // Set fetched car data to the state
+      } catch (err) {
+        setError(err.message); // Capture any errors
+      } finally {
+        setLoading(false); // Stop the loading spinner
+      }
+    };
+
+    fetchCars();
+  }, [apiUrl]);
+
+  // Slider settings
+  const sliderSettings = {
     dots: true,
     infinite: true,
-    speed: 400,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 2000,
     pauseOnHover: true,
     arrows: false,
   };
 
+  // Handle errors
+  if (error) {
+    return <div className="error-message">Error: {error}</div>;
+  }
+
+  // Render loading spinner
+  if (loading) {
+    return <div className="loading-message">Loading cars...</div>;
+  }
+
+  // Render car carousel
   return (
     <div className="carousel-container">
-      <Slider {...settings}>
-        {carouselData.map((slide, index) => (
-          <div key={index} className="carousel-slide">
-            <img src={slide.image} alt={`Slide ${index + 1}`} />
+      <Slider {...sliderSettings}>
+        {cars.map((car) => (
+          <div key={car.id} className="carousel-slide">
+            {/* Image */}
+            <img
+              src={`${apiUrl}/uploads/${car.image_path}`}
+              alt={car.name}
+              className="car-image1"
+            />
+
+            {/* Overlay content */}
             <div className="overlay-content">
-              <h2>{slide.heading}</h2>
-              <div className="price-section">
-                <FaTag className="price-icon" />
-                <span className="discounted-price1">{slide.discountedPrice}</span>
-                <span className="original-price1">{slide.originalPrice}</span>
-                
+              <h2 className="car-name">{car.name}</h2>
+              <div className="price-section1">
+                <FaTag className="icon" />
+                <span className="car-price">${car.price}</span>
               </div>
-              <div className="miles-section">
-                <FaRoad className="miles-icon" />
-                <span>{slide.miles}</span>
+              <div className="miles-section1">
+                <FaRoad className="icon" />
+                <span className="car-miles">{car.miles} miles</span>
               </div>
-              <a href={slide.buttonLink} className="carousel-button">
-                {slide.buttonText}
-              </a>
+              {/* More Details Button */}
+              <button className="more-details-button">More Details</button>
             </div>
           </div>
         ))}

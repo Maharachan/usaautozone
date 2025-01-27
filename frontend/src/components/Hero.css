@@ -53,6 +53,7 @@
   transition: background-color 0.3s ease;
   margin-left: 130px;
   margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .hero-button:hover {
