@@ -55,7 +55,7 @@ function Cars() {
                 <img
                   src={`${process.env.REACT_APP_API_URL}/uploads/${car.image_path}`}
                   alt={car.name}
-                  className="car-image"
+                  className="car-image2"
                 />
               </div>
 
@@ -64,9 +64,9 @@ function Cars() {
                 <h3 className="car-title">
                   {car.name}
                 </h3>
-                <p className="price-details">
+                <p className="price-details1">
                   <FaDollarSign className="icon" />
-                  <span className="discounted-price">${car.price}</span>
+                  <span className="discounted-price1">{car.price}</span>
                 </p>
                 <p className="additional-details">
                   <FaTachometerAlt className="icon" />

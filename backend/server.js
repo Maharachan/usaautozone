@@ -93,15 +93,13 @@ app.post("/api/cars", upload.array("images", 10), async (req, res) => {
 });
 
 // Endpoint to fetch car data
-// Endpoint to fetch car data
 app.get("/api/cars", async (req, res) => {
   try {
     const [cars] = await db.query(
-      `SELECT cars.id, cars.transmission, cars.trim, cars.name, cars.price, cars.miles, 
-              GROUP_CONCAT(car_images.image_path) AS image_paths
+      `SELECT cars.id, cars.name, cars.price,cars.transmission,cars.trim, cars.miles, MIN(car_images.image_path) AS image_path
        FROM cars
        LEFT JOIN car_images ON cars.id = car_images.car_id
-       GROUP BY cars.id, cars.name, cars.transmission, cars.trim, cars.price, cars.miles`
+       GROUP BY cars.id, cars.name, cars.price, cars.miles,cars.transmission,cars.trim`
     );
 
     return res.json(cars);
