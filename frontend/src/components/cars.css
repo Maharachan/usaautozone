@@ -40,13 +40,14 @@
   justify-content: center;
 }
 
+/* Car Images with Fixed Size and Aspect Ratio */
 .car-image2 {
-  width: 100%;
-  max-width: 400px; /* Optional: Set max width for the image */
-  height: 200px;
+  width: 350px; /* Fixed maximum width for image */
+  height: 200px; /* Fixed height */
   border-radius: 8px;
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+  object-position: center; /* Center the image */
 }
-
 /* Car Details Container */
 .car-details-container1 {
   flex: 2;
@@ -58,7 +59,7 @@
 
 /* Price Details */
 .car-card p {
-  font-size: 16px;
+  font-size: 18px;
   color: #ffffff;
   margin: 5px 0;
   display: flex;
@@ -68,15 +69,21 @@
 }
 
 /* Discounted Price */
-.discounted-price {
+.discounted-price1 {
   font-size: 20px;
   font-weight: 600;
   color: #ffffff;
+  background-color: #686868;
+  padding-right: 22px;
+  padding-left: 22px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
 }
 
 /* Original Price (strikethrough) */
 .original-price {
-  font-size: 16px;
+  font-size: 18px;
   text-decoration: line-through;
   color: #ff0000;
 }
@@ -120,15 +127,11 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-
-
-
-
 /* Car Title */
 .car-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 10px 0;
+  font-size: 25px;
+  font-weight: 800;
+  margin-left: 30px;
   color: #ffffff;
   text-transform: uppercase;
   text-align: left; /* Align car heading to the left */
@@ -136,19 +139,19 @@
 }
 
 /* Price Details */
-.price-details {
+.price-details1 {
   font-size: 16px;
   color: #ffffff;
   display: flex;
   align-items: center;
   gap: 10px; /* Space between icon and prices */
-  margin-left: 30px;
   font-family: 'Montserrat', sans-serif;
 }
 
-.price-details .icon {
-  font-size: 20px;
+.price-details1 .icon {
+  font-size: 30px;
   color: #4599fe; /* Price icon color */
+  margin-left: 25px;
 }
 
 /* Additional Details (Transmission, Trim, Miles) */
@@ -157,12 +160,13 @@
   color: #ffffff;
   display: flex;
   align-items: center;
-  gap: 20px; /* Space between details */
-  margin-left: 30px;
+  gap: 25px; /* Space between details */
+  padding-left: 28px;
+  padding-top: 25px;
 }
 
 .additional-details .icon {
-  font-size: 20px;
+  font-size: 30px;
   color: #4599fe; /* Details icons color */
 }
 

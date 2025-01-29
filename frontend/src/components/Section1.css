@@ -37,7 +37,7 @@
 .overlay-content {
   position: absolute;
   top: 50%;
-  left: 8%;
+  left: 10%;
   transform: translateY(-50%);
   z-index: 2; /* Above the overlay */
   color: #fff;
@@ -60,8 +60,8 @@
 .miles-section1 {
   display: flex;
   align-items: center;
-  gap: 25px;
-  margin-bottom: 20px;
+  gap: 30px;
+  margin-bottom: 15px;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -71,14 +71,14 @@
 }
 
 .miles-section1 {
-  font-size: 22px;
+  font-size: 20px;
   font-family: 'Montserrat', sans-serif;
 }
 
 /* Icons Styling */
 .icon {
-  font-size: 24px;
-  color: #fff;
+  font-size: 22px;
+  color: #4599FE;
 }
 
 /* More Details Button */
@@ -86,17 +86,17 @@
   padding: 12px 30px;
   background-color: #4599FE;
   color: #fff;
-  font-weight: 400;
+  font-weight: 600;
   text-transform: uppercase;
   border: none;
   border-radius: 5px;
   transition: background-color 0.3s ease;
-  margin-top: 10px;
-  font-family: "Montserrat", sans-serif;
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .more-details-button:hover {
-  background-color: #2386ff;
+  background-color: #1f84ff;
 }
 
 /* Dots Styling */
