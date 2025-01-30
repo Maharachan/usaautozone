@@ -1,17 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./cardetails.css";
-
-// Import images
-import image1 from "../assets/6.png";
-import image2 from "../assets/7.png";
-import image3 from "../assets/8.png";
-
-const images = [image1, image2, image3];
+import axios from "axios";
 
 const CarDetailsPage = () => {
+  const { id } = useParams(); // Assumes you're using React Router for dynamic routing
+  const [carDetails, setCarDetails] = useState(null);
+
   const carouselSettings = {
     dots: true,
     infinite: true,
@@ -23,43 +21,26 @@ const CarDetailsPage = () => {
     arrows: true,
   };
 
-  const details1Data = [
-    { heading: "3902", text: "MILES" },
-    { heading: "USED", text: "CONDITION" },
-    { heading: "2020", text: "YEAR" },
-    { heading: "1", text: "NO OF OWNERS" },
-  ];
+  useEffect(() => {
+    const fetchCarDetails = async () => {
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/cars/${id}`);
+        if (response.data.success === false) {
+          console.error("Car not found or API error:", response.data.message);
+        } else {
+          setCarDetails(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching car details:", error);
+      }
+    };
+    fetchCarDetails();
+  }, [id]);
+  
 
-  const details2Data = [
-    { heading: "5000", text: "ENGINE CC" },
-    { heading: "SUV", text: "BODY STYLE" },
-    { heading: "COMFORTABLE", text: "INTERIOR STYLE" },
-    { heading: "HATCHBACKS", text: "EXTERIOR STYLE" },
-    { heading: "XL", text: "TRIM" },
-  ];
-
-  const details3Data = [
-    { heading: "BLACK", text: "COLOUR" },
-    { heading: "MANUAL", text: "TRANSMISSION" },
-    { heading: "AWD", text: "DRIVE TYPE" },
-    { heading: "PETROL", text: "FUEL" },
-  ];
-
-  const features = [
-    "360-degree camera",
-    "Blind spot alert",
-    "Bluetooth connectivity",
-    "Cooled seats",
-    "Keyless start",
-  ];
-
-  const securityFeatures = [
-    "Adaptive headlights",
-    "Backup camera",
-    "Blind-spot warning",
-    "Lane keeping assist",
-    "Pedestrian detection",
-  ];
+  if (!carDetails) {
+    return <p>Loading car details...</p>;
+  }
 
   return (
     <div className="car-details-page">
@@ -67,62 +48,97 @@ const CarDetailsPage = () => {
       <div className="carousel-section">
         <div className="carousel-container-10">
           <Slider {...carouselSettings}>
-            {images.map((image, index) => (
+            {carDetails.images.map((image, index) => (
               <div key={index} className="carousel-slide">
-                <img src={image} alt={`Slide ${index + 1}`} className="carousel-image" />
+                <img
+                  src={`${process.env.REACT_APP_API_URL}/uploads/${image}`}
+                  alt={`Slide ${index + 1}`}
+                  className="carousel-image"
+                />
               </div>
             ))}
           </Slider>
         </div>
         <div className="text-content10">
-          <h2>Toyota Hilux</h2>
+          <h2>{carDetails.name}</h2>
           <div className="price-section10">
-            <p className="discounted-price10">$1000</p>
-            <p className="original-price10">$1200</p>
+            <p className="discounted-price10">${carDetails.price}</p>
           </div>
         </div>
       </div>
 
-      {/* Car Details Section 1 */}
+      {/* Car Details Sections */}
       <div className="car-details10-container">
         <div className="row">
-          {details1Data.map((item, index) => (
-            <div key={index} className="column">
-              <h3>{item.heading}</h3>
-              <p>{item.text}</p>
-            </div>
-          ))}
+          <div className="column">
+            <h3>{carDetails.miles}</h3>
+            <p>Miles</p>
+          </div>
+          <div className="column">
+            <h3>{carDetails.conditions}</h3>
+            <p>Condition</p>
+          </div>
+          <div className="column">
+            <h3>{carDetails.year}</h3>
+            <p>Year</p>
+          </div>
+          <div className="column">
+            <h3>{carDetails.owners}</h3>
+            <p>No of Owners</p>
+          </div>
         </div>
       </div>
 
-      {/* Car Details Section 2 */}
       <div className="car-details20-container">
         <div className="row">
-          {details2Data.map((item, index) => (
-            <div key={index} className="column">
-              <h3>{item.heading}</h3>
-              <p>{item.text}</p>
-            </div>
-          ))}
+          <div className="column">
+            <h3>{carDetails.engineCC}</h3>
+            <p>Engine CC</p>
+          </div>
+          <div className="column">
+            <h3>{carDetails.bodyStyle}</h3>
+            <p>Body Style</p>
+          </div>
+          <div className="column">
+            <h3>{carDetails.interiorStyle}</h3>
+            <p>Interior Style</p>
+          </div>
+          <div className="column">
+            <h3>{carDetails.exteriorStyle}</h3>
+            <p>Exterior Style</p>
+          </div>
+          <div className="column">
+            <h3>{carDetails.trim}</h3>
+            <p>Trim</p>
+          </div>
         </div>
       </div>
 
-      {/* Car Details Section 3 */}
       <div className="car-details30-container">
         <div className="row">
-          {details3Data.map((item, index) => (
-            <div key={index} className="column">
-              <h3>{item.heading}</h3>
-              <p>{item.text}</p>
-            </div>
-          ))}
+          <div className="column">
+            <h3>{carDetails.color}</h3>
+            <p>Color</p>
+          </div>
+          <div className="column">
+            <h3>{carDetails.transmission}</h3>
+            <p>Transmission</p>
+          </div>
+          <div className="column">
+            <h3>{carDetails.driveType}</h3>
+            <p>Drive Type</p>
+          </div>
+          <div className="column">
+            <h3>{carDetails.fuel}</h3>
+            <p>Fuel</p>
+          </div>
         </div>
 
         {/* Features Section */}
         <div className="features-section10">
           <h3>Features</h3>
           <ul>
-            {features.map((feature, index) => (
+            {carDetails.features.map((feature, index) => (
               <li key={index}>{feature}</li>
             ))}
           </ul>
@@ -132,7 +148,7 @@ const CarDetailsPage = () => {
         <div className="security-features-section10">
           <h3>Security Features</h3>
           <ul>
-            {securityFeatures.map((securityFeature, index) => (
+            {carDetails.safetyFeatures.map((securityFeature, index) => (
               <li key={index}>{securityFeature}</li>
             ))}
           </ul>

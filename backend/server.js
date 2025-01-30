@@ -92,7 +92,16 @@ app.post("/api/cars", upload.array("images", 10), async (req, res) => {
   }
 });
 
-// Endpoint to fetch car data
+
+const isValidJSON = (str) => {
+  try {
+    return JSON.parse(str); // Parse and return the valid JSON
+  } catch (err) {
+    return []; // If parsing fails, return an empty array
+  }
+};
+
+// Endpoint to fetch all car data
 app.get("/api/cars", async (req, res) => {
   try {
     const [cars] = await db.query(
@@ -108,7 +117,34 @@ app.get("/api/cars", async (req, res) => {
     return res.status(500).json({ success: false, message: "Failed to fetch car data." });
   }
 });
+// Endpoint to fetch a single car by ID with complete details
+app.get("/api/cars/:id", async (req, res) => {
+  try {
+    const carId = req.params.id;
+    const [[carDetails]] = await db.query(
+      `SELECT cars.id, cars.name, cars.price, cars.transmission, cars.trim, cars.miles,
+              cars.conditions, cars.year, cars.engineCC, cars.color, cars.bodyStyle,
+              cars.exteriorStyle, cars.interiorStyle, cars.driveType, cars.fuel, cars.owners,
+              cars.descriptions, cars.features, cars.safetyFeatures
+       FROM cars WHERE cars.id = ?`,
+      [carId]
+    );
 
+    if (!carDetails) {
+      return res.status(404).json({ success: false, message: "Car not found" });
+    }
+
+    const [images] = await db.query(`SELECT image_path FROM car_images WHERE car_id = ?`, [carId]);
+
+    carDetails.images = images.map((img) => img.image_path);
+
+
+    return res.json(carDetails);
+  } catch (err) {
+    console.error("Error fetching car details:", err);
+    return res.status(500).json({ success: false, message: "Failed to fetch car details." });
+  }
+});
 
 // Start the server
 const PORT = process.env.PORT || 5000;

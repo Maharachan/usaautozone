@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "./Section1.css"; // Ensure this file contains your carousel styling
 import { FaTag, FaRoad } from "react-icons/fa";
 
 const ImageCarousel1 = () => {
-  const [cars, setCars] = useState([]); // State to store car data
-  const [loading, setLoading] = useState(true); // State to manage loading status
-  const [error, setError] = useState(null); // State to manage errors
-
-  // Get the API URL from the .env file
+  const [cars, setCars] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const apiUrl = process.env.REACT_APP_API_URL;
 
-  // Fetch car data from the backend
   useEffect(() => {
     const fetchCars = async () => {
       try {
@@ -20,18 +18,16 @@ const ImageCarousel1 = () => {
           throw new Error("Failed to fetch car data");
         }
         const data = await response.json();
-        setCars(data); // Set fetched car data to the state
+        setCars(data);
       } catch (err) {
-        setError(err.message); // Capture any errors
+        setError(err.message);
       } finally {
-        setLoading(false); // Stop the loading spinner
+        setLoading(false);
       }
     };
-
     fetchCars();
   }, [apiUrl]);
 
-  // Slider settings
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -44,30 +40,19 @@ const ImageCarousel1 = () => {
     arrows: false,
   };
 
-  // Handle errors
-  if (error) {
-    return <div className="error-message">Error: {error}</div>;
-  }
+  if (error) return <div className="error-message">Error: {error}</div>;
+  if (loading) return <div className="loading-message">Loading cars...</div>;
 
-  // Render loading spinner
-  if (loading) {
-    return <div className="loading-message">Loading cars...</div>;
-  }
-
-  // Render car carousel
   return (
     <div className="carousel-container">
       <Slider {...sliderSettings}>
         {cars.map((car) => (
           <div key={car.id} className="carousel-slide">
-            {/* Image */}
             <img
               src={`${apiUrl}/uploads/${car.image_path}`}
               alt={car.name}
               className="car-image1"
             />
-
-            {/* Overlay content */}
             <div className="overlay-content">
               <h2 className="car-name">{car.name}</h2>
               <div className="price-section1">
@@ -78,8 +63,9 @@ const ImageCarousel1 = () => {
                 <FaRoad className="icon" />
                 <span className="car-miles">{car.miles} miles</span>
               </div>
-              {/* More Details Button */}
-              <button className="more-details-button">More Details</button>
+              <Link to={`/Cars/${car.id}`} className="more-details-link">
+                <button className="more-details-button">More Details</button>
+              </Link>
             </div>
           </div>
         ))}

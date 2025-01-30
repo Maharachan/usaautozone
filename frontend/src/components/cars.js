@@ -79,10 +79,7 @@ function Cars() {
 
                 {/* Link to CarDetails page with state */}
                 <Link
-                  to={{
-                    pathname: `/cardetails`,
-                    state: { car }, // Pass the car object as state
-                  }}
+                  to={`/Cars/${car.id}`}
                 >
                   <button className="contact-button">Car Details</button>
                 </Link>
