@@ -66,11 +66,6 @@ const Navbar = () => {
           </RouterLink>
         </li>
         <li>
-          <RouterLink to="/cars/1" onClick={() => setIsMobileMenuOpen(false)}>
-            Car Details
-          </RouterLink>
-        </li>
-        <li>
           <button className="contact-us-btn1" onClick={handleContactUsClick}>
             Contact Us
           </button>

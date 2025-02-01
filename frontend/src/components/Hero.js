@@ -1,6 +1,14 @@
 import React from "react";
-import "./Hero.css"; // Import the CSS file for styling
+import { useNavigate } from "react-router-dom";
+import "./Hero.css";
+
 const HeroSection = () => {
+  const navigate = useNavigate(); // Initialize navigate function
+
+  const handleExploreCars = () => {
+    navigate("/cars"); // Redirect to the cars page
+  };
+
   return (
     <div className="hero-section10">
       {/* Left-Aligned Text */}
@@ -9,8 +17,8 @@ const HeroSection = () => {
         <h1 className="hero-title2">Awaits</h1>
 
         {/* Left-Aligned Button */}
-        <button className="hero-button">
-          Explore cars
+        <button className="hero-button" onClick={handleExploreCars}>
+          Explore Cars
         </button>
       </div>
     </div>

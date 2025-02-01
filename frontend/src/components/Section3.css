@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .section3-card {
@@ -12,8 +11,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 900px; /* Limit card width */
+  width: 70%;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -24,51 +22,76 @@
   text-transform: uppercase;
 }
 
-/* Contact Info Section */
+.section0-divider1 {
+  width: 100px;
+  height: 4px;
+  background-color: #ffffff;
+  margin: 0 auto;
+  border-radius: 2px;
+  margin-bottom: 50px;
+}
+
 .contact-info {
   display: flex;
-  justify-content: space-between;
-  gap: 150px; /* Add spacing between items */
-  width: 100%; /* Ensure items span full width */
+  gap: 30px;
+  width: 100%;
 }
 
 .contact-item {
-  display: flex;
   align-items: center;
-  gap: 25px;
-  flex: 1; /* Allow equal space for each item */
+  gap: 20px;
+  flex: 1;
 }
 
 .large-icon {
-  font-size: 50px; /* Larger icons */
+  font-size: 50px;
   color: #4599FE;
+  margin-bottom: 30px;
+}
+
+.contact-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .contact-label {
   font-size: 22px;
-  font-weight: bold;
+  font-weight: 100;
   color: #ffffff;
-  margin-right: 20px;
-  margin-left: 20px;
 }
 
 .contact-text {
   font-size: 18px;
   color: #ffffff;
 }
-.section0-divider1 {
-  width: 100px; /* Width of the divider */
-  height: 4px; /* Thickness of the divider */
-  background-color: #ffffff; /* Color of the divider */
-  margin: 0 auto; /* Center the divider */
-  border-radius: 2px; /* Optional: Rounded edges */
-  margin-bottom: 70px;
+
+.contact-button1 {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* Responsive Design */
+.contact-button:hover {
+  background-color: #0056b3;
+}
+
 @media (max-width: 768px) {
   .contact-info {
-    flex-direction: column; /* Stack items vertically on smaller screens */
     gap: 20px;
   }
 
@@ -78,6 +101,6 @@
 
   .contact-label,
   .contact-text {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
