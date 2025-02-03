@@ -37,7 +37,7 @@
   padding-top: 60px;
   padding-left: 60px;
   padding-right: 80px;
-  padding-bottom:60px ;
+  padding-bottom: 60px;
   margin-top: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -88,13 +88,63 @@
   background-color: #2085ff;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .login-form {
-    padding: 20px;
+/* Mobile View Adjustments */
+@media (max-width: 1024px) {
+  /* Adjust the heading font size for tablets */
+  .login-heading1 {
+    font-size: 30px; /* Decrease the font size for better fit */
   }
 
-  .login-heading {
-    font-size: 28px;
+  /* Adjust form width */
+  .login-form {
+    width: 90%; /* Use 90% of the width for mobile */
+    max-width: 400px; /* Increase max-width slightly for better usability */
+  }
+
+  /* Adjust input field padding for mobile */
+  .login-input {
+    font-size: 14px; /* Smaller font size for better fit on mobile */
+    padding: 10px 12px; /* Reduce padding for smaller screens */
+  }
+
+  /* Adjust button padding and font size for mobile */
+  .login-button1 {
+    font-size: 14px; /* Smaller font size */
+    padding: 10px; /* Adjust padding */
+  }
+}
+
+/* Mobile View Adjustments for Smaller Screens (Phones) */
+@media (max-width: 768px) {
+  /* Adjust the heading font size */
+  .login-heading1 {
+    font-size: 24px; /* Decrease the font size for smaller screens */
+    margin-top: 50px; /* Adjust top margin for better positioning */
+  }
+
+  /* Adjust form width */
+  .login-form {
+    width: 85%; /* Use 85% of the width for better fit */
+    padding-top: 40px; /* Reduce top padding for a more compact form */
+    padding-left: 30px; /* Reduce padding */
+    padding-right: 30px; /* Reduce padding */
+    padding-bottom: 40px; /* Reduce padding */
+  }
+
+  /* Adjust input field font size and padding */
+  .login-input {
+    font-size: 14px; /* Decrease font size */
+    padding: 8px 10px; /* Reduce padding for better fit */
+  }
+
+  /* Adjust button font size and padding */
+  .login-button1 {
+    font-size: 14px; /* Decrease font size */
+    padding: 10px 15px; /* Reduce padding */
+  }
+
+  /* Adjust divider line for smaller screens */
+  .login-divider {
+    width: 40px; /* Make the divider shorter for smaller screens */
   }
 }

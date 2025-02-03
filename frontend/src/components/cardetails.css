@@ -308,5 +308,106 @@
   margin-bottom: 10px;
   line-height: 1.6;
 }
+/* Mobile view adjustments */
+
+/* Carousel Section */
+@media only screen and (max-width: 768px) {
+  .carousel-container-10 {
+    margin-top: 50px; /* Reduce top margin for smaller screens */
+  }
+
+  .carousel-image {
+    height: 300px; /* Adjust image height on mobile */
+  }
+
+  /* Dots Styling for Carousel */
+  .slick-dots li button:before {
+    font-size: 10px; /* Smaller dots */
+  }
+
+  /* Navigation Arrows */
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 18px; /* Smaller arrow size */
+  }
+}
+
+/* Price Section */
+@media only screen and (max-width: 768px) {
+  .price-section10 {
+    flex-direction: column; /* Stack prices vertically */
+    align-items: center;
+    gap: 10px;
+  }
+
+  .discounted-price10 {
+    font-size: 18px; /* Smaller font size */
+    padding: 10px 15px; /* Adjust padding */
+  }
+
+  .original-price10 {
+    font-size: 16px; /* Smaller font size */
+  }
+}
+
+/* Car Details Section */
+@media only screen and (max-width: 768px) {
+  .car-details10-container,
+  .car-details20-container,
+  .car-details30-container {
+    width: 100%; /* Make containers take full width */
+    margin: 0 auto; /* Center the containers */
+  }
+
+  .row {
+    flex-direction: column; /* Stack columns vertically */
+    gap: 10px; /* Reduce gap between columns */
+  }
+
+  .column h3 {
+    font-size: 22px; /* Smaller heading font size */
+  }
+
+  .column p {
+    font-size: 14px; /* Adjust paragraph font size */
+  }
+}
+
+/* Button Container */
+@media only screen and (max-width: 768px) {
+  .button-container,
+  .button-container10 {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 15px; /* Adjust spacing between buttons */
+  }
+
+  .btn {
+    font-size: 14px; /* Smaller button font size */
+    padding: 10px 20px; /* Adjust padding */
+  }
+}
+
+/* Features Section */
+@media only screen and (max-width: 768px) {
+  .features-section10,
+  .security-features-section10 {
+    padding: 15px; /* Adjust padding */
+  }
+
+  .features-section10 h3,
+  .security-features-section10 h3 {
+    font-size: 20px; /* Smaller heading font size */
+  }
+
+  .features-section10 ul,
+  .security-features-section10 ul {
+    padding-left: 15px; /* Adjust list padding */
+  }
+
+  .features-section10 li,
+  .security-features-section10 li {
+    font-size: 14px; /* Adjust list item font size */
+  }
+}
 
 
