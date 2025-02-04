@@ -106,24 +106,35 @@
   font-size: 16px;
   font-weight: 400;
 }
-.contact-us-btn1{
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
-  font-family: "Montserrat", sans-serif;
-}
 
-.contact-us-btn1 {
-  background-color: #4599FE;
-  border: none;
-  cursor: pointer;
-  padding: 10px 15px;
-  border-radius: 3px;
-}
 
-.contact-us-btn:hover {
-  background-color: #1f84ff;
-  border: none;
-  cursor: pointer;
+/* Mobile View for smaller screens (phones) */
+@media (max-width: 768px) {
+  .navbar {
+    padding-top: 15px; /* Further adjust padding for smaller screens */
+    padding-bottom: 10px;
+  }
+
+  .navbar-logo .logo {
+    width: 130px; /* Further reduce logo size for mobile screens */
+  }
+
+  .navbar-links {
+    width: 80%; /* Maximize width on mobile */
+    padding-left: 20px; /* Further reduce padding */
+    top: 60px; /* Adjust navbar position for smaller screens */
+  }
+
+  .navbar-toggle-btn {
+    font-size: 20px; /* Reduce toggle button size */
+  }
+
+  .navbar-links a {
+    font-size: 14px; /* Further reduce font size for mobile screens */
+  }
+
+  .contact-us-btn1 {
+    font-size: 13px; /* Adjust font size for mobile */
+    padding: 8px 10px; /* Adjust padding for mobile */
+  }
 }

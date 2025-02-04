@@ -46,6 +46,7 @@ form {
   width: 100%;
   max-width: 250px;
 }
+
 .form-row label1 {
   color: #000;
   font-family: 'Montserrat', sans-serif;
@@ -142,9 +143,99 @@ button:disabled {
   background: #ccc;
   cursor: not-allowed;
 }
-.image-preview h4{
-color: #000;
-}
-.image-preview ul{
+
+.image-preview h4 {
   color: #000;
+}
+
+.image-preview ul {
+  color: #000;
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 1024px) {
+  /* Adjust form width for tablets */
+  .admin-page {
+    width: 90%;
   }
+
+  /* Adjust the form row layout for tablets */
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    max-width: 100%; /* Allow form elements to fill container on tablets */
+  }
+
+  /* Adjust input font size and padding for tablets */
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    font-size: 12px; /* Slightly smaller font size */
+    padding: 8px 10px; /* Reduce padding for better fit */
+  }
+
+  /* Adjust the checkbox group layout */
+  .checkbox-group {
+    gap: 5px; /* Reduce gap between checkboxes */
+  }
+
+  .checkbox-group label {
+    font-size: 12px; /* Smaller font size for labels */
+    padding: 6px 10px; /* Reduced padding */
+  }
+
+  /* Adjust the button font size for tablets */
+  button {
+    font-size: 14px; /* Smaller font size */
+    padding: 8px 12px; /* Adjust padding */
+  }
+}
+
+/* Mobile View Adjustments for Smaller Screens (Phones) */
+@media (max-width: 768px) {
+  /* Adjust the form width for phones */
+  .admin-page {
+    width: 95%; /* Use more screen space for phones */
+  }
+
+  /* Adjust heading font size */
+  h1 {
+    font-size: 24px; /* Smaller heading for phones */
+  }
+
+  /* Adjust form row layout for smaller screens */
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    max-width: 100%; /* Ensure elements fill the width on smaller screens */
+  }
+
+  /* Adjust the form's padding */
+  .admin-page {
+    padding: 15px; /* Reduce padding */
+  }
+
+  /* Reduce padding and font size for inputs */
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    font-size: 12px; /* Smaller font size */
+    padding: 6px 8px; /* Reduce padding */
+  }
+
+  /* Adjust the checkbox group layout */
+  .checkbox-group {
+    gap: 4px; /* Smaller gap between checkboxes */
+  }
+
+  .checkbox-group label {
+    font-size: 12px; /* Smaller font size for labels */
+    padding: 6px 8px; /* Adjust padding */
+  }
+
+  /* Adjust the button size and padding */
+  button {
+    font-size: 12px; /* Smaller font size */
+    padding: 8px 10px; /* Adjust padding for better fit */
+  }
+}

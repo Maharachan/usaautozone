@@ -90,17 +90,258 @@
   background-color: #0056b3;
 }
 
-@media (max-width: 768px) {
+/* Section3 Styling */
+.section3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Stacking the cards on mobile */
+}
+
+.section3-card {
+  padding: 40px;
+  border-radius: 10px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.section3-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.section0-divider1 {
+  width: 100px;
+  height: 4px;
+  background-color: #ffffff;
+  margin: 0 auto;
+  border-radius: 2px;
+  margin-bottom: 50px;
+}
+
+.contact-info {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+}
+
+.contact-item {
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+}
+
+.large-icon {
+  font-size: 50px;
+  color: #4599FE;
+  margin-bottom: 30px;
+}
+
+.contact-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-label {
+  font-size: 22px;
+  font-weight: 100;
+  color: #ffffff;
+}
+
+.contact-text {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.contact-button1 {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.contact-button1:hover {
+  background-color: #0056b3;
+}
+
+
+/* Section3 Styling */
+.section3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Stacking the cards on mobile */
+}
+
+.section3-card {
+  padding: 40px;
+  border-radius: 10px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.section3-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.section0-divider1 {
+  width: 100px;
+  height: 4px;
+  background-color: #ffffff;
+  margin: 0 auto;
+  border-radius: 2px;
+  margin-bottom: 50px;
+}
+
+.contact-info {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+}
+
+.contact-item {
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+}
+
+.large-icon {
+  font-size: 50px;
+  color: #4599FE;
+  margin-bottom: 30px;
+}
+
+.contact-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-label {
+  font-size: 22px;
+  font-weight: 100;
+  color: #ffffff;
+}
+
+.contact-text {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.contact-button1 {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.contact-button1:hover {
+  background-color: #0056b3;
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 1024px) {
+  .section3 {
+    padding: 20px;
+  }
+
+  .section3-card {
+    width: 90%; /* Adjust card width on mobile */
+  }
+
+  .section3-title {
+    font-size: 28px; /* Slightly smaller font for mobile */
+  }
+
+  .section0-divider1 {
+    width: 80px; /* Smaller divider for mobile */
+  }
+
   .contact-info {
+    flex-direction: column; /* Stack contact items vertically */
     gap: 20px;
   }
 
-  .large-icon {
-    font-size: 40px;
+  .contact-item {
+    width: 100%; /* Ensure contact items take full width */
+    align-items: flex-start; /* Align items to the start */
   }
 
-  .contact-label,
-  .contact-text {
-    font-size: 16px;
+  .large-icon {
+    font-size: 40px; /* Smaller icon for mobile */
+  }
+
+  .contact-button1 {
+    padding: 10px 20px; /* Adjust padding for button */
+    font-size: 16px; /* Larger font for readability */
   }
 }
+
+@media (max-width: 768px) {
+  .section3-card {
+    width: 95%; /* Further reduce card width on very small screens */
+  }
+
+  .section3-title {
+    font-size: 24px; /* Further reduce title size */
+  }
+
+  .section0-divider1 {
+    width: 60px; /* Smaller divider for smaller devices */
+  }
+
+  .contact-info {
+    flex-direction: column; /* Stack items on very small screens */
+    gap: 20px;
+  }
+
+  .contact-item {
+    width: 100%; /* Ensure contact items stack */
+  }
+
+  .contact-button1 {
+    padding: 8px 18px; /* Adjust padding */
+    font-size: 14px; /* Smaller font size */
+  }
+}
+

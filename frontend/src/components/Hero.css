@@ -26,8 +26,8 @@
   text-align: left; /* Left-align the text */
   align-items: left;
   align-self: start;
-  
 }
+
 .hero-title2 {
   font-size: 66px;
   font-weight: 400;
@@ -63,4 +63,31 @@
 .hero-button-icon {
   margin-right: 8px;
   font-size: 20px;
+}
+
+
+
+@media (max-width: 768px) {
+  .hero-section10 {
+    height: 50vh; /* Further adjust height for mobile */
+    padding-top: 20px; /* Further adjust padding for mobile */
+    align-self: center;
+  }
+
+  .hero-title1{
+    font-size: 30px; /* Further reduce font size for small screens */
+    margin-left: 20px; /* Reduce margin further */
+    margin-top: 120px; /* Adjust top margin */
+  }
+  .hero-title2 {
+    font-size: 30px; /* Further reduce font size for small screens */
+    margin-left: 20px; /* Reduce margin further */
+    margin-top: 15px; /* Adjust top margin */
+  }
+
+  .hero-button {
+    font-size: 14px; /* Reduce button font size */
+    padding: 6px 12px; /* Further reduce padding */
+    margin-left: 20px; /* Further reduce margin */
+  }
 }

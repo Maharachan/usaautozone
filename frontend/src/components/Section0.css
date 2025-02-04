@@ -22,3 +22,26 @@
     margin: 0 auto; /* Center the divider */
     border-radius: 2px; /* Optional: Rounded edges */
   }
+  @media (max-width: 768px) {
+    /* Section Container */
+    .section0 {
+      margin-top: 50px;
+      margin-bottom: 40px;
+      padding: 20px;
+    }
+  
+    /* Heading Adjustments for Mobile */
+    .section0-heading {
+      font-size: 24px;
+      font-weight: 700;
+      padding: 10px;
+    }
+  
+    /* Divider Alignment and Sizing for Mobile */
+    .section0-divider {
+      width: 80px;
+      height: 3px;
+      margin-top: 10px;
+    }
+  }
+  
