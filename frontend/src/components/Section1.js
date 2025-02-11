@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
-import "./Section1.css"; // Ensure this file contains your carousel styling
+import "./Section1.css";
 import { FaTag, FaRoad } from "react-icons/fa";
+import axios from "axios";
 
 const ImageCarousel1 = () => {
   const [cars, setCars] = useState([]);
@@ -13,12 +14,11 @@ const ImageCarousel1 = () => {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const response = await fetch(`${apiUrl}/api/cars`);
-        if (!response.ok) {
+        const response = await axios.get(`${apiUrl}/api/cars`);
+        if (!response.data.success) {
           throw new Error("Failed to fetch car data");
         }
-        const data = await response.json();
-        setCars(data);
+        setCars(response.data.cars);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -49,7 +49,11 @@ const ImageCarousel1 = () => {
         {cars.map((car) => (
           <div key={car.id} className="carousel-slide">
             <img
-              src={`${apiUrl}/uploads/${car.image_path}`}
+              src={
+                Array.isArray(car.image_urls) && car.image_urls.length > 0
+                  ? car.image_urls[0] // Display first image
+                  : car.image_url || "default-image.jpg" // Fallback to image_url or default image
+              }
               alt={car.name}
               className="car-image1"
             />
