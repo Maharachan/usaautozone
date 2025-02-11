@@ -89,7 +89,7 @@ function AdminPage() {
   
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/cars`, // Use the dynamic API URL
+        `${process.env.REACT_APP_API_URL}/api/cars/create`, // Use the dynamic API URL
         formData,
         {
           headers: {

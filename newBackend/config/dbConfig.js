@@ -1,5 +1,4 @@
 const mysql = require("mysql2/promise");
-
 const db = mysql.createPool({
   user: process.env.DB_USER || "root",
   password: process.env.DB_PASSWORD || "7878",
