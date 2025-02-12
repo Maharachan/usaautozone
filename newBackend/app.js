@@ -1,23 +1,16 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
+const app = require("./appp");
+const db = require("./config/dbConfig");
 
-// Routes
-const demoRoutes = require("./routes/demoRoutes");
-const adminRoutes = require("./routes/adminRoutes");
-const carRoutes = require("./routes/carRoutes");
+const PORT = process.env.PORT || 5000;
 
-const app = express();
-
-// Middleware
-app.use(cors());
-app.use(bodyParser.json());
-
-// API routes
-app.use("/demo", demoRoutes);
-app.use("/api/admin", adminRoutes);
-app.use("/api/cars", carRoutes);
-
-
-module.exports = app;
+// DB Checking
+db.getConnection()
+  .then(() => {
+    console.log("✅ Database is connected");
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running on http://localhost:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("❌ Database not connected:", err.message);
+  });
