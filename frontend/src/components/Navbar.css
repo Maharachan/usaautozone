@@ -108,33 +108,41 @@
 }
 
 
-/* Mobile View for smaller screens (phones) */
 @media (max-width: 768px) {
   .navbar {
-    padding-top: 15px; /* Further adjust padding for smaller screens */
+    padding: 10px 15px;
+    padding-top: 20px;
     padding-bottom: 10px;
   }
 
   .navbar-logo .logo {
-    width: 130px; /* Further reduce logo size for mobile screens */
+    width: 150px; /* Reduce logo size for smaller screens */
   }
 
-  .navbar-links {
-    width: 80%; /* Maximize width on mobile */
-    padding-left: 20px; /* Further reduce padding */
-    top: 60px; /* Adjust navbar position for smaller screens */
+  /* Admin Icon */
+  .admin-icon {
+    font-size: 24px;
+    margin-right: 30px;
   }
 
+  /* Toggle Button */
   .navbar-toggle-btn {
-    font-size: 20px; /* Reduce toggle button size */
+    font-size: 20px;
+    margin-left: 20px;
+  }
+
+  /* Navigation Links */
+  .navbar-links {
+    width: 70%; /* Take up more screen space */
+    padding-left: 20px;
+    padding-top: 80px;
+  }
+
+  .navbar-links li {
+    margin: 10px 0;
   }
 
   .navbar-links a {
-    font-size: 14px; /* Further reduce font size for mobile screens */
-  }
-
-  .contact-us-btn1 {
-    font-size: 13px; /* Adjust font size for mobile */
-    padding: 8px 10px; /* Adjust padding for mobile */
+    font-size: 14px;
   }
 }

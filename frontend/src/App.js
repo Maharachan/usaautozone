@@ -11,6 +11,7 @@ import Section3 from "./components/Section3";
 import Section5 from "./components/Section5";
 import Cars from "./components/cars";
 import CarDetailsPage from "./components/cardetails"; // Import updated component
+import ContactForm from "./components/contactform"; // Import ContactForm
 import AdminPage from "./components/Admin";
 import Login from "./components/Login";
 import Footer from "./components/Footer";
@@ -57,6 +58,7 @@ function App() {
           />
           <Route path="/Cars" element={<Cars />} />
           <Route path="/Cars/:id" element={<CarDetailsPage />} />
+          <Route path="/contact" element={<ContactForm />} /> {/* New Route */}
           <Route
             path="/admin"
             element={

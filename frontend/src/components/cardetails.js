@@ -1,172 +1,5 @@
-// import React, { useEffect, useState } from "react";
-// import { useParams } from "react-router-dom";
-// import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
-// import "./cardetails.css";
-// import axios from "axios";
-
-// const CarDetailsPage = () => {
-//   const { id } = useParams(); // Assumes you're using React Router for dynamic routing
-//   const [carDetails, setCarDetails] = useState(null);
-
-//   const carouselSettings = {
-//     dots: true,
-//     infinite: true,
-//     speed: 500,
-//     slidesToShow: 1,
-//     slidesToScroll: 1,
-//     autoplay: true,
-//     autoplaySpeed: 3000,
-//     arrows: true,
-//   };
-
-//   useEffect(() => {
-//     const fetchCarDetails = async () => {
-//       try {
-//         const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/cars/${id}`);
-//         if (response.data.success === false) {
-//           console.error("Car not found or API error:", response.data.message);
-//         } else {
-//           setCarDetails(response.data);
-//         }
-//       } catch (error) {
-//         console.error("Error fetching car details:", error);
-//       }
-//     };
-//     fetchCarDetails();
-//   }, [id]);
-  
-
-//   if (!carDetails) {
-//     return <p>Loading car details...</p>;
-//   }
-
-//   return (
-//     <div className="car-details-page">
-//       {/* Image Carousel Section */}
-//       <div className="carousel-section">
-//         <div className="carousel-container-10">
-//           <Slider {...carouselSettings}>
-//             {carDetails.images.map((image, index) => (
-//               <div key={index} className="carousel-slide">
-//                 <img
-//                   src={`${process.env.REACT_APP_API_URL}/uploads/${image}`}
-//                   alt={`Slide ${index + 1}`}
-//                   className="carousel-image"
-//                 />
-//               </div>
-//             ))}
-//           </Slider>
-//         </div>
-//         <div className="text-content10">
-//           <h2>{carDetails.name}</h2>
-//           <div className="price-section10">
-//             <p className="discounted-price10">${carDetails.price}</p>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Car Details Sections */}
-//       <div className="car-details10-container">
-//         <div className="row">
-//           <div className="column">
-//             <h3>{carDetails.miles}</h3>
-//             <p>Miles</p>
-//           </div>
-//           <div className="column">
-//             <h3>{carDetails.conditions}</h3>
-//             <p>Condition</p>
-//           </div>
-//           <div className="column">
-//             <h3>{carDetails.year}</h3>
-//             <p>Year</p>
-//           </div>
-//           <div className="column">
-//             <h3>{carDetails.owners}</h3>
-//             <p>No of Owners</p>
-//           </div>
-//         </div>
-//       </div>
-
-//       <div className="car-details20-container">
-//         <div className="row">
-//           <div className="column">
-//             <h3>{carDetails.engineCC}</h3>
-//             <p>Engine CC</p>
-//           </div>
-//           <div className="column">
-//             <h3>{carDetails.bodyStyle}</h3>
-//             <p>Body Style</p>
-//           </div>
-//           <div className="column">
-//             <h3>{carDetails.interiorStyle}</h3>
-//             <p>Interior Style</p>
-//           </div>
-//           <div className="column">
-//             <h3>{carDetails.exteriorStyle}</h3>
-//             <p>Exterior Style</p>
-//           </div>
-//           <div className="column">
-//             <h3>{carDetails.trim}</h3>
-//             <p>Trim</p>
-//           </div>
-//         </div>
-//       </div>
-
-//       <div className="car-details30-container">
-//         <div className="row">
-//           <div className="column">
-//             <h3>{carDetails.color}</h3>
-//             <p>Color</p>
-//           </div>
-//           <div className="column">
-//             <h3>{carDetails.transmission}</h3>
-//             <p>Transmission</p>
-//           </div>
-//           <div className="column">
-//             <h3>{carDetails.driveType}</h3>
-//             <p>Drive Type</p>
-//           </div>
-//           <div className="column">
-//             <h3>{carDetails.fuel}</h3>
-//             <p>Fuel</p>
-//           </div>
-//         </div>
-
-//         {/* Features Section */}
-//         <div className="features-section10">
-//           <h3>Features</h3>
-//           <ul>
-//             {carDetails.features.map((feature, index) => (
-//               <li key={index}>{feature}</li>
-//             ))}
-//           </ul>
-//         </div>
-
-//         {/* Security Features Section */}
-//         <div className="security-features-section10">
-//           <h3>Security Features</h3>
-//           <ul>
-//             {carDetails.safetyFeatures.map((securityFeature, index) => (
-//               <li key={index}>{securityFeature}</li>
-//             ))}
-//           </ul>
-//         </div>
-
-//         {/* Buttons Section */}
-//         <div className="button-container10">
-//           <button className="btn primary-btn10">Learn More</button>
-//           <button className="btn secondary-btn10">Contact Us</button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default CarDetailsPage;
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom"; // Import useNavigate
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -175,6 +8,7 @@ import axios from "axios";
 
 const CarDetailsPage = () => {
   const { id } = useParams(); // Assumes you're using React Router for dynamic routing
+  const navigate = useNavigate(); // Hook for navigation
   const [carDetails, setCarDetails] = useState(null);
 
   const carouselSettings = {
@@ -219,14 +53,14 @@ const CarDetailsPage = () => {
                 <div key={index} className="carousel-slide">
                   <img
                     src={image}
-                    alt={`Car Image ${index + 1}`}
+                    alt=""
                     className="carousel-image"
                   />
                 </div>
               ))
             ) : (
               <div className="carousel-slide">
-                <img src="default-image.jpg" alt="No Image Available" className="carousel-image" />
+                <img src="default-image.jpg" alt="" className="carousel-image" />
               </div>
             )}
           </Slider>
@@ -332,8 +166,15 @@ const CarDetailsPage = () => {
 
         {/* Buttons Section */}
         <div className="button-container10">
-          <button className="btn primary-btn10">Learn More</button>
-          <button className="btn secondary-btn10">Contact Us</button>
+          <button
+            className="btn primary-btn10"
+            onClick={() => window.location.href = `tel:${9039780137}`}
+          >
+            Call Now
+          </button>
+          <button className="btn secondary-btn10" onClick={() => navigate("/contact")}>
+            Contact Us
+          </button>
         </div>
       </div>
     </div>

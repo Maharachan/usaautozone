@@ -30,7 +30,7 @@ const Footer = () => {
         <div className="footer-contact">
           <div className="contact-item">
             <FaEnvelope className="icon1" />
-            <span>support@usaautoplaza.com</span>
+            <span>sasif4ever@yahoo.com</span>
           </div>
           <div className="contact-item">
             <FaPhoneAlt className="icon1" />
