@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom"; // Import useNavigate
+import { useParams, useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,9 +7,11 @@ import "./cardetails.css";
 import axios from "axios";
 
 const CarDetailsPage = () => {
-  const { id } = useParams(); // Assumes you're using React Router for dynamic routing
-  const navigate = useNavigate(); // Hook for navigation
+  const { id } = useParams();
+  const navigate = useNavigate();
   const [carDetails, setCarDetails] = useState(null);
+  const [sliderRef, setSliderRef] = useState(null);
+  const [zoomedImage, setZoomedImage] = useState(null); // State for zoom functionality
 
   const carouselSettings = {
     dots: true,
@@ -17,9 +19,8 @@ const CarDetailsPage = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: true,
+    autoplay: false, // Removed auto movement
+    arrows: false, // Hiding default arrows (we'll use custom buttons)
   };
 
   useEffect(() => {
@@ -29,7 +30,7 @@ const CarDetailsPage = () => {
         if (response.data.success === false) {
           console.error("Car not found or API error:", response.data.message);
         } else {
-          setCarDetails(response.data.car); // Ensure correct API response structure
+          setCarDetails(response.data.car);
         }
       } catch (error) {
         console.error("Error fetching car details:", error);
@@ -47,7 +48,7 @@ const CarDetailsPage = () => {
       {/* Image Carousel Section */}
       <div className="carousel-section">
         <div className="carousel-container-10">
-          <Slider {...carouselSettings}>
+          <Slider ref={setSliderRef} {...carouselSettings}>
             {carDetails.images && carDetails.images.length > 0 ? (
               carDetails.images.map((image, index) => (
                 <div key={index} className="carousel-slide">
@@ -55,6 +56,7 @@ const CarDetailsPage = () => {
                     src={image}
                     alt=""
                     className="carousel-image"
+                    onClick={() => setZoomedImage(image)} // Clicking image will zoom
                   />
                 </div>
               ))
@@ -65,6 +67,15 @@ const CarDetailsPage = () => {
             )}
           </Slider>
         </div>
+        <div className="carousel-controls">
+          <button className="prev-btn" onClick={() => sliderRef?.slickPrev()}>
+            ❮ Prev
+          </button>
+          <button className="next-btn" onClick={() => sliderRef?.slickNext()}>
+            Next ❯
+          </button>
+        </div>
+
         <div className="text-content10">
           <h2>{carDetails.name}</h2>
           <div className="price-section10">
@@ -109,10 +120,7 @@ const CarDetailsPage = () => {
             <h3>{carDetails.interiorStyle}</h3>
             <p>Interior Style</p>
           </div>
-          <div className="column">
-            <h3>{carDetails.exteriorStyle}</h3>
-            <p>Exterior Style</p>
-          </div>
+          
           <div className="column">
             <h3>{carDetails.trim}</h3>
             <p>Trim</p>
@@ -177,6 +185,13 @@ const CarDetailsPage = () => {
           </button>
         </div>
       </div>
+
+      {/* Zoomed Image Modal */}
+      {zoomedImage && (
+        <div className="zoom-modal" onClick={() => setZoomedImage(null)}>
+          <img src={zoomedImage} alt="Zoomed" className="zoomed-image" />
+        </div>
+      )}
     </div>
   );
 };
