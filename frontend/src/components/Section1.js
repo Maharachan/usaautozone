@@ -47,7 +47,7 @@ const ImageCarousel1 = () => {
     <div className="carousel-container">
       <Slider {...sliderSettings}>
         {cars.map((car) => (
-          <div key={car.id} className="carousel-slide">
+          <div key={car.id} className="carousel-slide1">
             <img
               src={
                 Array.isArray(car.image_urls) && car.image_urls.length > 0

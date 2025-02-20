@@ -141,7 +141,7 @@ function AdminPage() {
             >
               <option value="">Condition</option>
               <option value="New">New</option>
-              <option value="Used">Used</option>
+              <option value="Pre-Owned">Used</option>
             </select>
             <input
               type="number"
@@ -201,13 +201,7 @@ function AdminPage() {
           </div>
 
           <div className="form-row">
-            <input
-              type="text"
-              name="exteriorStyle"
-              placeholder="Exterior Style"
-              value={newCar.exteriorStyle}
-              onChange={handleChange}
-            />
+         
             <input
               type="text"
               name="interiorStyle"
@@ -247,17 +241,15 @@ function AdminPage() {
               <option value="Electric">Electric</option>
               <option value="Diesel">Diesel</option>
               <option value="Petrol">Petrol</option>
+              <option value="Gas">Gas</option>
             </select>
-            <select
+            <input
+              type="text"
               name="trim"
+              placeholder="Trim"
               value={newCar.trim}
               onChange={handleChange}
-            >
-              <option value="">Trim</option>
-              <option value="XL">XL</option>
-              <option value="Sedan">Sedan</option>
-              <option value="L">L</option>
-            </select>
+            />
           </div>
 
           <div className="form-row full-width">
