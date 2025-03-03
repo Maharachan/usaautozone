@@ -50,7 +50,7 @@ exports.createCar = async (req, res) => {
     // Insert car details into `cars` table
     const [carResult] = await db.query(
       `INSERT INTO cars (name, conditions, year, price, owners, miles, engineCC, color, bodyStyle, 
-        exteriorStyle, interiorStyle, driveType, transmission, fuel, trim, descriptions, features, safetyFeatures) 
+         interiorStyle, driveType, transmission, fuel, trim, descriptions, features, safetyFeatures) 
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         newCar.name,
@@ -62,7 +62,6 @@ exports.createCar = async (req, res) => {
         newCar.engineCC,
         newCar.color,
         newCar.bodyStyle,
-        newCar.exteriorStyle,
         newCar.interiorStyle,
         newCar.driveType,
         newCar.transmission,
@@ -104,7 +103,7 @@ exports.getCarById = async (req, res) => {
     // Fetch car details from `cars` table
     const [[carDetails]] = await db.query(
       `SELECT id, name, conditions, year, price, owners, miles, engineCC, color, bodyStyle,
-                exteriorStyle, interiorStyle, driveType, transmission, fuel, trim, descriptions,
+                 interiorStyle, driveType, transmission, fuel, trim, descriptions,
                 features, safetyFeatures
          FROM cars WHERE id = ?`,
       [carId]
